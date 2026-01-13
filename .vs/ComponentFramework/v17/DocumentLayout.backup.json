@@ -1,0 +1,200 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\ash\\source\\repos\\ComponentFramework26.157.0\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{614C2865-E38B-423B-8A72-E9D57BC43A73}|ComponentFramework\\ComponentFramework.vcxproj|C:\\Users\\ash\\source\\repos\\ComponentFramework26.157.0\\ComponentFramework\\Scene1p.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{614C2865-E38B-423B-8A72-E9D57BC43A73}|ComponentFramework\\ComponentFramework.vcxproj|solutionrelative:ComponentFramework\\Scene1p.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{614C2865-E38B-423B-8A72-E9D57BC43A73}|ComponentFramework\\ComponentFramework.vcxproj|C:\\Users\\ash\\source\\repos\\ComponentFramework26.157.0\\ComponentFramework\\Scene0p.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{614C2865-E38B-423B-8A72-E9D57BC43A73}|ComponentFramework\\ComponentFramework.vcxproj|solutionrelative:ComponentFramework\\Scene0p.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{614C2865-E38B-423B-8A72-E9D57BC43A73}|ComponentFramework\\ComponentFramework.vcxproj|C:\\Users\\ash\\source\\repos\\ComponentFramework26.157.0\\ComponentFramework\\Scene1p.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{614C2865-E38B-423B-8A72-E9D57BC43A73}|ComponentFramework\\ComponentFramework.vcxproj|solutionrelative:ComponentFramework\\Scene1p.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{614C2865-E38B-423B-8A72-E9D57BC43A73}|ComponentFramework\\ComponentFramework.vcxproj|C:\\Users\\ash\\source\\repos\\ComponentFramework26.157.0\\ComponentFramework\\Scene0g.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{614C2865-E38B-423B-8A72-E9D57BC43A73}|ComponentFramework\\ComponentFramework.vcxproj|solutionrelative:ComponentFramework\\Scene0g.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{614C2865-E38B-423B-8A72-E9D57BC43A73}|ComponentFramework\\ComponentFramework.vcxproj|C:\\Users\\ash\\source\\repos\\ComponentFramework26.157.0\\ComponentFramework\\SceneManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{614C2865-E38B-423B-8A72-E9D57BC43A73}|ComponentFramework\\ComponentFramework.vcxproj|solutionrelative:ComponentFramework\\SceneManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{614C2865-E38B-423B-8A72-E9D57BC43A73}|ComponentFramework\\ComponentFramework.vcxproj|C:\\Users\\ash\\source\\repos\\ComponentFramework26.157.0\\ComponentFramework\\Window.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{614C2865-E38B-423B-8A72-E9D57BC43A73}|ComponentFramework\\ComponentFramework.vcxproj|solutionrelative:ComponentFramework\\Window.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{614C2865-E38B-423B-8A72-E9D57BC43A73}|ComponentFramework\\ComponentFramework.vcxproj|C:\\Users\\ash\\source\\repos\\ComponentFramework26.157.0\\ComponentFramework\\Main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{614C2865-E38B-423B-8A72-E9D57BC43A73}|ComponentFramework\\ComponentFramework.vcxproj|solutionrelative:ComponentFramework\\Main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{614C2865-E38B-423B-8A72-E9D57BC43A73}|ComponentFramework\\ComponentFramework.vcxproj|C:\\Users\\ash\\source\\repos\\ComponentFramework26.157.0\\ComponentFramework\\Timer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{614C2865-E38B-423B-8A72-E9D57BC43A73}|ComponentFramework\\ComponentFramework.vcxproj|solutionrelative:ComponentFramework\\Timer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{614C2865-E38B-423B-8A72-E9D57BC43A73}|ComponentFramework\\ComponentFramework.vcxproj|C:\\Users\\ash\\source\\repos\\ComponentFramework26.157.0\\ComponentFramework\\Window.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{614C2865-E38B-423B-8A72-E9D57BC43A73}|ComponentFramework\\ComponentFramework.vcxproj|solutionrelative:ComponentFramework\\Window.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{614C2865-E38B-423B-8A72-E9D57BC43A73}|ComponentFramework\\ComponentFramework.vcxproj|C:\\Users\\ash\\source\\repos\\ComponentFramework26.157.0\\ComponentFramework\\Scene0g.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{614C2865-E38B-423B-8A72-E9D57BC43A73}|ComponentFramework\\ComponentFramework.vcxproj|solutionrelative:ComponentFramework\\Scene0g.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Scene1p.h",
+              "DocumentMoniker": "C:\\Users\\ash\\source\\repos\\ComponentFramework26.157.0\\ComponentFramework\\Scene1p.h",
+              "RelativeDocumentMoniker": "ComponentFramework\\Scene1p.h",
+              "ToolTip": "C:\\Users\\ash\\source\\repos\\ComponentFramework26.157.0\\ComponentFramework\\Scene1p.h*",
+              "RelativeToolTip": "ComponentFramework\\Scene1p.h*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-01-13T18:17:05.685Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Scene1p.cpp",
+              "DocumentMoniker": "C:\\Users\\ash\\source\\repos\\ComponentFramework26.157.0\\ComponentFramework\\Scene1p.cpp",
+              "RelativeDocumentMoniker": "ComponentFramework\\Scene1p.cpp",
+              "ToolTip": "C:\\Users\\ash\\source\\repos\\ComponentFramework26.157.0\\ComponentFramework\\Scene1p.cpp*",
+              "RelativeToolTip": "ComponentFramework\\Scene1p.cpp*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-01-13T18:16:46.26Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Main.cpp",
+              "DocumentMoniker": "C:\\Users\\ash\\source\\repos\\ComponentFramework26.157.0\\ComponentFramework\\Main.cpp",
+              "RelativeDocumentMoniker": "ComponentFramework\\Main.cpp",
+              "ToolTip": "C:\\Users\\ash\\source\\repos\\ComponentFramework26.157.0\\ComponentFramework\\Main.cpp",
+              "RelativeToolTip": "ComponentFramework\\Main.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-01-13T04:45:14.19Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Scene0g.cpp",
+              "DocumentMoniker": "C:\\Users\\ash\\source\\repos\\ComponentFramework26.157.0\\ComponentFramework\\Scene0g.cpp",
+              "RelativeDocumentMoniker": "ComponentFramework\\Scene0g.cpp",
+              "ToolTip": "C:\\Users\\ash\\source\\repos\\ComponentFramework26.157.0\\ComponentFramework\\Scene0g.cpp",
+              "RelativeToolTip": "ComponentFramework\\Scene0g.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-01-13T03:38:47.676Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Scene0g.h",
+              "DocumentMoniker": "C:\\Users\\ash\\source\\repos\\ComponentFramework26.157.0\\ComponentFramework\\Scene0g.h",
+              "RelativeDocumentMoniker": "ComponentFramework\\Scene0g.h",
+              "ToolTip": "C:\\Users\\ash\\source\\repos\\ComponentFramework26.157.0\\ComponentFramework\\Scene0g.h",
+              "RelativeToolTip": "ComponentFramework\\Scene0g.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-01-13T03:38:39.677Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Window.cpp",
+              "DocumentMoniker": "C:\\Users\\ash\\source\\repos\\ComponentFramework26.157.0\\ComponentFramework\\Window.cpp",
+              "RelativeDocumentMoniker": "ComponentFramework\\Window.cpp",
+              "ToolTip": "C:\\Users\\ash\\source\\repos\\ComponentFramework26.157.0\\ComponentFramework\\Window.cpp",
+              "RelativeToolTip": "ComponentFramework\\Window.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-01-13T02:42:50.343Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "SceneManager.cpp",
+              "DocumentMoniker": "C:\\Users\\ash\\source\\repos\\ComponentFramework26.157.0\\ComponentFramework\\SceneManager.cpp",
+              "RelativeDocumentMoniker": "ComponentFramework\\SceneManager.cpp",
+              "ToolTip": "C:\\Users\\ash\\source\\repos\\ComponentFramework26.157.0\\ComponentFramework\\SceneManager.cpp",
+              "RelativeToolTip": "ComponentFramework\\SceneManager.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-01-13T02:41:12.72Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Window.h",
+              "DocumentMoniker": "C:\\Users\\ash\\source\\repos\\ComponentFramework26.157.0\\ComponentFramework\\Window.h",
+              "RelativeDocumentMoniker": "ComponentFramework\\Window.h",
+              "ToolTip": "C:\\Users\\ash\\source\\repos\\ComponentFramework26.157.0\\ComponentFramework\\Window.h",
+              "RelativeToolTip": "ComponentFramework\\Window.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-01-13T02:34:18.624Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Timer.cpp",
+              "DocumentMoniker": "C:\\Users\\ash\\source\\repos\\ComponentFramework26.157.0\\ComponentFramework\\Timer.cpp",
+              "RelativeDocumentMoniker": "ComponentFramework\\Timer.cpp",
+              "ToolTip": "C:\\Users\\ash\\source\\repos\\ComponentFramework26.157.0\\ComponentFramework\\Timer.cpp",
+              "RelativeToolTip": "ComponentFramework\\Timer.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-01-13T02:33:31.801Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Scene0p.cpp",
+              "DocumentMoniker": "C:\\Users\\ash\\source\\repos\\ComponentFramework26.157.0\\ComponentFramework\\Scene0p.cpp",
+              "RelativeDocumentMoniker": "ComponentFramework\\Scene0p.cpp",
+              "ToolTip": "C:\\Users\\ash\\source\\repos\\ComponentFramework26.157.0\\ComponentFramework\\Scene0p.cpp",
+              "RelativeToolTip": "ComponentFramework\\Scene0p.cpp",
+              "ViewState": "AgIAADkAAAAAAAAAAAAkwFwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-01-13T02:04:37.497Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

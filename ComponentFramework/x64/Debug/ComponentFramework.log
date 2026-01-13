@@ -1,0 +1,15 @@
+﻿  SceneManager.cpp
+G:\Winter2026\ComponentFramework26.157.0 - SDL3\ComponentFramework\SceneManager.cpp(80,4): warning C5051: attribute [[fallthrough]] requires at least '/std:c++17'; ignored
+  Main.cpp
+  Generating Code...
+Mesh.obj : error LNK2019: unresolved external symbol __imp_glDrawArrays referenced in function "public: void __cdecl Mesh::Render(unsigned int)const " (?Render@Mesh@@QEBAXI@Z)
+Scene0p.obj : error LNK2019: unresolved external symbol __imp_glClear referenced in function "public: virtual void __cdecl Scene0p::Render(void)const " (?Render@Scene0p@@UEBAXXZ)
+Scene0g.obj : error LNK2001: unresolved external symbol __imp_glClear
+Scene0p.obj : error LNK2019: unresolved external symbol __imp_glClearColor referenced in function "public: virtual void __cdecl Scene0p::Render(void)const " (?Render@Scene0p@@UEBAXXZ)
+Scene0g.obj : error LNK2001: unresolved external symbol __imp_glClearColor
+Scene0p.obj : error LNK2019: unresolved external symbol __imp_glPolygonMode referenced in function "public: virtual void __cdecl Scene0p::Render(void)const " (?Render@Scene0p@@UEBAXXZ)
+Scene0g.obj : error LNK2001: unresolved external symbol __imp_glPolygonMode
+Window.obj : error LNK2019: unresolved external symbol __imp_glGetIntegerv referenced in function "private: void __cdecl Window::getInstalledOpenGLInfo(int *,int *)" (?getInstalledOpenGLInfo@Window@@AEAAXPEAH0@Z)
+Window.obj : error LNK2019: unresolved external symbol __imp_glGetString referenced in function "private: void __cdecl Window::getInstalledOpenGLInfo(int *,int *)" (?getInstalledOpenGLInfo@Window@@AEAAXPEAH0@Z)
+Window.obj : error LNK2019: unresolved external symbol __imp_glViewport referenced in function "public: bool __cdecl Window::OnCreate(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,int,int)" (?OnCreate@Window@@QEAA_NV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@HH@Z)
+G:\Winter2026\ComponentFramework26.157.0 - SDL3\x64\Debug\ComponentFramework.exe : fatal error LNK1120: 7 unresolved externals
