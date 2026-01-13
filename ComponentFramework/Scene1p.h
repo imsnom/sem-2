@@ -16,9 +16,11 @@ private:
 	Body* sphere;
 	Shader* shader;
 	Mesh* mesh;
+	Mesh* sphereMesh;
 	Matrix4 projectionMatrix;
 	Matrix4 viewMatrix;
 	Matrix4 modelMatrix;
+	Matrix4 sphereModelMatrix;
 	bool drawInWireMode;
 
 public:

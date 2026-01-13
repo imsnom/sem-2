@@ -27,6 +27,9 @@ bool Scene1p::OnCreate() {
 	mesh = new Mesh("meshes/Plane.obj");
 	mesh->OnCreate();
 
+	sphereMesh = new Mesh("meshes/Sphere.obj");
+	sphereMesh->OnCreate();
+
 	shader = new Shader("shaders/defaultVert.glsl", "shaders/defaultFrag.glsl");
 	if (shader->OnCreate() == false) {
 		std::cout << "Shader failed ... we have a problem\n";
@@ -34,7 +37,11 @@ bool Scene1p::OnCreate() {
 
 	projectionMatrix = MMath::perspective(45.0f, (16.0f / 9.0f), 0.5f, 100.0f);
 	viewMatrix = MMath::lookAt(Vec3(0.0f, 0.0f, 10.0f), Vec3(0.0f, 0.0f, 0.0f), Vec3(0.0f, 1.0f, 0.0f));
-	modelMatrix.loadIdentity();
+	// Rotate!
+	float angleDegrees = 95;
+	Vec3 axis = Vec3(1, 0, 0);
+	modelMatrix = MMath::rotate(angleDegrees, axis);
+	//modelMatrix.loadIdentity();
 	return true;
 }
 
@@ -45,6 +52,9 @@ void Scene1p::OnDestroy() {
 
 	mesh->OnDestroy();
 	delete mesh;
+
+	sphereMesh->OnDestroy();
+	delete sphereMesh;
 
 	shader->OnDestroy();
 	delete shader;
@@ -86,6 +96,8 @@ void Scene1p::Render() const {
 	glUniformMatrix4fv(shader->GetUniformID("viewMatrix"), 1, GL_FALSE, viewMatrix);
 	glUniformMatrix4fv(shader->GetUniformID("modelMatrix"), 1, GL_FALSE, modelMatrix);
 	mesh->Render(GL_TRIANGLES);
+	glUniformMatrix4fv(shader->GetUniformID("modelMatrix"), 1, GL_FALSE, sphereModelMatrix);
+	sphereMesh->Render(GL_TRIANGLES);
 	glUseProgram(0);
 }
 

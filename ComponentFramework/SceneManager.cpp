@@ -131,7 +131,7 @@ bool SceneManager::BuildNewScene(SCENE_NUMBER scene) {
 		status = currentScene->OnCreate();
 		break;*/
 
-	case SCENE_NUMBER::SCENE1:
+	case SCENE_NUMBER::SCENE1p:
 		currentScene = new Scene1p();
 		status = currentScene->OnCreate();
 		break;
