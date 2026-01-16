@@ -23,6 +23,7 @@ bool Scene1p::OnCreate() {
 	Debug::Info("Loading assets Scene1p: ", __FILE__, __LINE__);
 	sphere = new Body();
 	sphere->OnCreate();
+	sphere->angularVel = Vec3(0, 1, 0);
 
 	mesh = new Mesh("meshes/Plane.obj");
 	mesh->OnCreate();
@@ -41,7 +42,7 @@ bool Scene1p::OnCreate() {
 	float angleDegrees = 95;
 	Vec3 axis = Vec3(1, 0, 0);
 	modelMatrix = MMath::rotate(angleDegrees, axis);
-	//modelMatrix.loadIdentity();
+	sphereModelMatrix = MMath::translate(Vec3(0, 1, 0));
 	return true;
 }
 
@@ -77,7 +78,11 @@ void Scene1p::HandleEvents(const SDL_Event& sdlEvent) {
 }
 
 void Scene1p::Update(const float deltaTime) {
+	Matrix4 T = MMath::translate(Vec3(0, 1, 0));
 
+	Matrix4 R = MMath::toMatrix4(sphere->orientation);
+
+	sphereModelMatrix = T * R;
 }
 
 void Scene1p::Render() const {

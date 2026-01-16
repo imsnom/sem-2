@@ -14,6 +14,20 @@ void Body::ApplyForce(Vec3 force) {
 	accel = force / mass;
 }
 
+void Body::UpdateOrientation(float deltaTime) {
+	float angularVelMag = VMath::mag(angularVel);
+	float angleRadians = angularVelMag * deltaTime;
+	float angleDegrees = angleRadians * RADIANS_TO_DEGREES;
+
+	if (angleDegrees < VERY_SMALL) return; // this happens if the angle is zero
+
+	Vec3 axisOfRotation = VMath::normalize(angularVel);
+
+	Quaternion rotation = QMath::angleAxisRotation(angleDegrees, axisOfRotation);
+
+	orientation = rotation * orientation;
+}
+
 bool Body::OnCreate() {
 	return true;
 }
