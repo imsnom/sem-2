@@ -23,7 +23,8 @@ bool Scene1p::OnCreate() {
 	Debug::Info("Loading assets Scene1p: ", __FILE__, __LINE__);
 	sphere = new Body();
 	sphere->OnCreate();
-	sphere->angularVel = Vec3(0, 1, 0);
+	sphere->angularVel = Vec3(1, 0, 0);
+	sphere->radius = 1.0f;
 
 	mesh = new Mesh("meshes/Plane.obj");
 	mesh->OnCreate();
@@ -39,7 +40,7 @@ bool Scene1p::OnCreate() {
 	projectionMatrix = MMath::perspective(45.0f, (16.0f / 9.0f), 0.5f, 100.0f);
 	viewMatrix = MMath::lookAt(Vec3(0.0f, 0.0f, 10.0f), Vec3(0.0f, 0.0f, 0.0f), Vec3(0.0f, 1.0f, 0.0f));
 	// Rotate!
-	float angleDegrees = 95;
+	float angleDegrees = 100;
 	Vec3 axis = Vec3(1, 0, 0);
 	modelMatrix = MMath::rotate(angleDegrees, axis);
 	sphereModelMatrix = MMath::translate(Vec3(0, 1, 0));
@@ -78,11 +79,21 @@ void Scene1p::HandleEvents(const SDL_Event& sdlEvent) {
 }
 
 void Scene1p::Update(const float deltaTime) {
+
+	sphere->UpdateOrientation(deltaTime);
+
+	// part one of assignment one
+	// can you make the ball move based on angular velocity using umer's scrubbles on the board
+	// linear velocity = angular velocity CROSS (radius * plane normal)
+	// sphere->update(deltaTime)
+
 	Matrix4 T = MMath::translate(Vec3(0, 1, 0));
 
 	Matrix4 R = MMath::toMatrix4(sphere->orientation);
 
-	sphereModelMatrix = T * R;
+	Matrix4 S = MMath::scale(sphere->radius, sphere->radius, sphere->radius);
+
+	sphereModelMatrix = T * R * S;
 }
 
 void Scene1p::Render() const {

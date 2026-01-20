@@ -19,10 +19,11 @@ public: /// Physics stuff (was originally private)
 	Vec3 accel;
 	float mass;
 	// rotation stuff 
-	Quaternion orientation; // this doesn't work ??
+	Quaternion orientation; // this doesn't work ?? works now i think
 
 	Vec3 angularVel; // angle / time (rad/s) also points along axis of rotation
 
+	float radius;
 	
 private: /// Graphics stuff 
 	Mesh *mesh;
