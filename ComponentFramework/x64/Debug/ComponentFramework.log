@@ -1,15 +1,63 @@
-﻿  SceneManager.cpp
-G:\Winter2026\ComponentFramework26.157.0 - SDL3\ComponentFramework\SceneManager.cpp(80,4): warning C5051: attribute [[fallthrough]] requires at least '/std:c++17'; ignored
+﻿  Body.cpp
+  Warning: Vec4 cross(const Vec4& a, const Vec4& b) read my comments
+  This questionable: Vec4 inverse(const Vec4& v)
+C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Body.cpp(13,11): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Body.cpp(12,8): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Body.cpp(11,10): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  Debug.cpp
+  Mesh.cpp
+C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Mesh.cpp(105,28): warning C4267: 'argument': conversion from 'size_t' to 'GLsizei', possible loss of data
+C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Mesh.cpp(111,29): warning C4267: 'argument': conversion from 'size_t' to 'GLsizei', possible loss of data
+  Scene0p.cpp
+  Warning: Vec4 cross(const Vec4& a, const Vec4& b) read my comments
+  This questionable: Vec4 inverse(const Vec4& v)
+  Scene1p.cpp
+  Warning: Vec4 cross(const Vec4& a, const Vec4& b) read my comments
+  This questionable: Vec4 inverse(const Vec4& v)
+C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Scene1p.cpp(98,8): warning C4101: 'angleRadOfPlane': unreferenced local variable
+C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Scene1p.cpp(99,8): warning C4101: 'distanceToPivot': unreferenced local variable
+C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Scene1p.cpp(100,8): warning C4101: 'weight': unreferenced local variable
+  SceneManager.cpp
+C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\SceneManager.cpp(81,4): warning C5051: attribute [[fallthrough]] requires at least '/std:c++17'; ignored
   Main.cpp
+  Scene0g.cpp
+  Warning: Vec4 cross(const Vec4& a, const Vec4& b) read my comments
+  This questionable: Vec4 inverse(const Vec4& v)
+  Shader.cpp
+C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Shader.cpp(93,33): warning C4267: '=': conversion from 'size_t' to 'GLsizei', possible loss of data
+C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Shader.cpp(108,33): warning C4267: '=': conversion from 'size_t' to 'GLsizei', possible loss of data
+C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Shader.cpp(137,34): warning C4267: '=': conversion from 'size_t' to 'GLsizei', possible loss of data
+C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Shader.cpp(152,34): warning C4267: '=': conversion from 'size_t' to 'GLsizei', possible loss of data
+C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Shader.cpp(187,34): warning C4267: '=': conversion from 'size_t' to 'GLsizei', possible loss of data
+  Texture.cpp
+  Texture.h
+  Timer.cpp
+C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Timer.cpp(10,26): warning C4244: '=': conversion from 'Uint64' to 'unsigned int', possible loss of data
+C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Timer.cpp(11,29): warning C4244: '=': conversion from 'Uint64' to 'unsigned int', possible loss of data
+C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Timer.cpp(16,29): warning C4244: '=': conversion from 'Uint64' to 'unsigned int', possible loss of data
+C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Timer.cpp(28,25): warning C4244: 'initializing': conversion from 'Uint64' to 'unsigned int', possible loss of data
+  Window.cpp
+C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Window.cpp(10,14): warning C4804: '<': unsafe use of type 'bool' in operation
   Generating Code...
+x64\Debug\Texture.obj : warning LNK4042: object specified more than once; extras ignored
 Mesh.obj : error LNK2019: unresolved external symbol __imp_glDrawArrays referenced in function "public: void __cdecl Mesh::Render(unsigned int)const " (?Render@Mesh@@QEBAXI@Z)
 Scene0p.obj : error LNK2019: unresolved external symbol __imp_glClear referenced in function "public: virtual void __cdecl Scene0p::Render(void)const " (?Render@Scene0p@@UEBAXXZ)
+Scene1p.obj : error LNK2001: unresolved external symbol __imp_glClear
 Scene0g.obj : error LNK2001: unresolved external symbol __imp_glClear
 Scene0p.obj : error LNK2019: unresolved external symbol __imp_glClearColor referenced in function "public: virtual void __cdecl Scene0p::Render(void)const " (?Render@Scene0p@@UEBAXXZ)
+Scene1p.obj : error LNK2001: unresolved external symbol __imp_glClearColor
 Scene0g.obj : error LNK2001: unresolved external symbol __imp_glClearColor
 Scene0p.obj : error LNK2019: unresolved external symbol __imp_glPolygonMode referenced in function "public: virtual void __cdecl Scene0p::Render(void)const " (?Render@Scene0p@@UEBAXXZ)
+Scene1p.obj : error LNK2001: unresolved external symbol __imp_glPolygonMode
 Scene0g.obj : error LNK2001: unresolved external symbol __imp_glPolygonMode
+Scene0g.obj : error LNK2019: unresolved external symbol __imp_glBindTexture referenced in function "public: virtual void __cdecl Scene0g::Render(void)const " (?Render@Scene0g@@UEBAXXZ)
+Texture.obj : error LNK2001: unresolved external symbol __imp_glBindTexture
+Scene0g.obj : error LNK2019: unresolved external symbol __imp_glEnable referenced in function "public: virtual void __cdecl Scene0g::Render(void)const " (?Render@Scene0g@@UEBAXXZ)
+Texture.obj : error LNK2019: unresolved external symbol __imp_glDeleteTextures referenced in function "public: __cdecl Texture::~Texture(void)" (??1Texture@@QEAA@XZ)
+Texture.obj : error LNK2019: unresolved external symbol __imp_glGenTextures referenced in function "public: bool __cdecl Texture::LoadImage(char const *)" (?LoadImage@Texture@@QEAA_NPEBD@Z)
+Texture.obj : error LNK2019: unresolved external symbol __imp_glTexImage2D referenced in function "public: bool __cdecl Texture::LoadImage(char const *)" (?LoadImage@Texture@@QEAA_NPEBD@Z)
+Texture.obj : error LNK2019: unresolved external symbol __imp_glTexParameteri referenced in function "public: bool __cdecl Texture::LoadImage(char const *)" (?LoadImage@Texture@@QEAA_NPEBD@Z)
 Window.obj : error LNK2019: unresolved external symbol __imp_glGetIntegerv referenced in function "private: void __cdecl Window::getInstalledOpenGLInfo(int *,int *)" (?getInstalledOpenGLInfo@Window@@AEAAXPEAH0@Z)
 Window.obj : error LNK2019: unresolved external symbol __imp_glGetString referenced in function "private: void __cdecl Window::getInstalledOpenGLInfo(int *,int *)" (?getInstalledOpenGLInfo@Window@@AEAAXPEAH0@Z)
 Window.obj : error LNK2019: unresolved external symbol __imp_glViewport referenced in function "public: bool __cdecl Window::OnCreate(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,int,int)" (?OnCreate@Window@@QEAA_NV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@HH@Z)
-G:\Winter2026\ComponentFramework26.157.0 - SDL3\x64\Debug\ComponentFramework.exe : fatal error LNK1120: 7 unresolved externals
+C:\Users\ash\source\repos\ComponentFramework26.157.0\x64\Debug\ComponentFramework.exe : fatal error LNK1120: 13 unresolved externals

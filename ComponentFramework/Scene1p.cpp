@@ -23,8 +23,13 @@ bool Scene1p::OnCreate() {
 	Debug::Info("Loading assets Scene1p: ", __FILE__, __LINE__);
 	sphere = new Body();
 	sphere->OnCreate();
-	sphere->angularVel = Vec3(1, 0, 0);
+	sphere->angularVel = Vec3(0, 0, 0);
+	//sphere->vel = Vec3(0, 0, 1);
 	sphere->radius = 1.0f;
+
+	plane = new Body();
+	plane->OnCreate();
+	
 
 	mesh = new Mesh("meshes/Plane.obj");
 	mesh->OnCreate();
@@ -40,10 +45,11 @@ bool Scene1p::OnCreate() {
 	projectionMatrix = MMath::perspective(45.0f, (16.0f / 9.0f), 0.5f, 100.0f);
 	viewMatrix = MMath::lookAt(Vec3(0.0f, 0.0f, 10.0f), Vec3(0.0f, 0.0f, 0.0f), Vec3(0.0f, 1.0f, 0.0f));
 	// Rotate!
-	float angleDegrees = 100;
+	float angleDegrees = 90;
 	Vec3 axis = Vec3(1, 0, 0);
 	modelMatrix = MMath::rotate(angleDegrees, axis);
 	sphereModelMatrix = MMath::translate(Vec3(0, 1, 0));
+	planeNormal = Vec3(0, 1, 0);
 	return true;
 }
 
@@ -65,11 +71,37 @@ void Scene1p::OnDestroy() {
 }
 
 void Scene1p::HandleEvents(const SDL_Event& sdlEvent) {
+	const float angleDeg = 5;
 	switch (sdlEvent.type) {
 	case SDL_EVENT_KEY_DOWN:
 		switch (sdlEvent.key.scancode) {
+			// Cooper says we should use the arrow keys to rotate the plane
+		case SDL_SCANCODE_UP:
+			// Lets make the ball roll away from us (up to you)
+		{
+			Vec3 axis = Vec3(-1, 0, 0);
+			Matrix4 rotation = MMath::rotate(angleDeg, axis);
+			// Update the model matrix
+			modelMatrix *= rotation;
+			// update the normal
+			planeNormal = rotation * planeNormal;
+		}
+
+		break;
+		case SDL_SCANCODE_DOWN:
+
+			break;
+		case SDL_SCANCODE_LEFT:
+
+			break;
+		case SDL_SCANCODE_RIGHT:
+
+			break;
+
+
+
+
 		case SDL_SCANCODE_W:
-			drawInWireMode = !drawInWireMode;
 			break;
 		default:
 			break;
@@ -80,23 +112,46 @@ void Scene1p::HandleEvents(const SDL_Event& sdlEvent) {
 
 void Scene1p::Update(const float deltaTime) {
 
-	sphere->UpdateOrientation(deltaTime);
+	Vec3 linearVel = sphere->angularVel;
+
+	
+	
 
 	// part one of assignment one
-	// can you make the ball move based on angular velocity using umer's scrubbles on the board
+	// can you make the ball move based on angular velocity using umer's scribbles on the board
 	// linear velocity = angular velocity CROSS (radius * plane normal)
 	// sphere->update(deltaTime)
 
-	Matrix4 T = MMath::translate(Vec3(0, 1, 0));
+	float angleRadOfPlane; // acos(up vector DOT plane normal)
+	float distanceToPivot = radius * sin(angleRadOfPlane); // radius * sin(angleRad)
+	float weight = sphere->mass * SDL_STANDARD_GRAVITY; // mass * g
+	Vec3 directionOfTorque; // up vector CROSS plane normal
+	Vec3 torque = distanceToPivot * weight * directionOfTorque; // distanceToPivot * weight * direction
+	
+
+	sphere->ApplyTorque(torque);
+	// now that angular acceleration has been calculated above we need to update angular velocity
+	sphere->UpdateAngularVel(deltaTime);
+
+	sphere->UpdateOrientation(deltaTime);
+	sphere->UpdatePos(deltaTime);
+
+	//sphere->vel = VMath::cross(sphere->angularVel, (sphere->radius * Vec3(0.0f, 1.0f, 0.0f)));
+
+	//Matrix4 T = MMath::translate(Vec3(0, 1, 0));
+	Matrix4 T = MMath::translate(Vec3(0, sphere->radius, 0) + sphere->pos);
 
 	Matrix4 R = MMath::toMatrix4(sphere->orientation);
 
 	Matrix4 S = MMath::scale(sphere->radius, sphere->radius, sphere->radius);
 
 	sphereModelMatrix = T * R * S;
+	
+
 }
 
 void Scene1p::Render() const {
+	//glEnable(GL_DEPTH_TEST);
 	/// Set the background color then clear the screen
 	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);

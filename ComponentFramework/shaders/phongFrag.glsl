@@ -3,13 +3,16 @@
 
 layout(location = 0) out vec4 fragColor;
 
+uniform vec4 kdColour;
+
 layout(location = 0) in vec3 vertNormal;
 layout(location = 1) in vec3 lightDir;
 layout(location = 2) in vec3 eyeDir; 
 
 void main() {
     vec4 ks = vec4(0.3, 0.3, 0.3, 0.0);
-	vec4 kd = vec4(0.6, 0.6, 0.3, 0.0);
+	//vec4 kd = vec4(0.7, 0.6, 0.2, 0.0);
+	vec4 kd = kdColour;
 	vec4 ka = 0.1 * kd;
 	float diff = max(dot(vertNormal, lightDir), 0.0);
 

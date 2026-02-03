@@ -14,6 +14,7 @@ class Shader;
 class Scene1p : public Scene {
 private:
 	Body* sphere;
+	Body* plane;
 	Shader* shader;
 	Mesh* mesh;
 	Mesh* sphereMesh;
@@ -21,6 +22,7 @@ private:
 	Matrix4 viewMatrix;
 	Matrix4 modelMatrix;
 	Matrix4 sphereModelMatrix;
+	Vec3 planeNormal;
 	bool drawInWireMode;
 
 public:

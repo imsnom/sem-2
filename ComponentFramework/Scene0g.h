@@ -3,6 +3,7 @@
 #include "Scene.h"
 #include "Vector.h"
 #include <Matrix.h>
+#include "Texture.h"
 using namespace MATH;
 
 /// Forward declarations 
@@ -16,10 +17,15 @@ private:
 	Body* sphere;
 	Shader* shader;
 	Mesh* mesh;
+	Mesh* skullMesh;
+	Mesh* marioMesh;
+	Texture* earthTexture, *moonTexture;
 	Matrix4 projectionMatrix;
 	Matrix4 viewMatrix;
-	Matrix4 modelMatrix;
+	Matrix4 earthModelMatrix, moonModelMatrix;
 	bool drawInWireMode;
+	Vec3 lightPos;
+	Vec4 colour;
 
 public:
 	explicit Scene0g();
