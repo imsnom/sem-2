@@ -22,7 +22,9 @@ private:
 	Matrix4 viewMatrix;
 	Matrix4 modelMatrix;
 	Matrix4 sphereModelMatrix;
+	Matrix4 rotation;
 	Vec3 planeNormal;
+	Vec3 axis;
 	bool drawInWireMode;
 
 public:

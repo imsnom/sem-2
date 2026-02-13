@@ -18,13 +18,17 @@ private:
 	Shader* shader;
 	Mesh* mesh;
 	Mesh* skullMesh;
-	Mesh* marioMesh;
-	Texture* earthTexture, *moonTexture;
+	//Mesh* marioMesh;
+	Texture* earthTexture;
+	Texture* moonTexture;
+	Texture* skullTexture;
 	Matrix4 projectionMatrix;
 	Matrix4 viewMatrix;
-	Matrix4 earthModelMatrix, moonModelMatrix;
+	Matrix4 earthModelMatrix, moonModelMatrix, skullModelMatrix;
 	bool drawInWireMode;
 	Vec3 lightPos;
+	Vec3 lightPos_2;
+	Vec3 lightPosMulti[2] = { lightPos, lightPos_2 };
 	Vec4 colour;
 
 public:

@@ -10,6 +10,7 @@
 #include "Shader.h"
 #include "Body.h"
 
+
 Scene1p::Scene1p() :sphere{ nullptr }, shader{ nullptr }, mesh{ nullptr },
 drawInWireMode{ true } {
 	Debug::Info("Created Scene1p: ", __FILE__, __LINE__);
@@ -46,7 +47,7 @@ bool Scene1p::OnCreate() {
 	viewMatrix = MMath::lookAt(Vec3(0.0f, 0.0f, 10.0f), Vec3(0.0f, 0.0f, 0.0f), Vec3(0.0f, 1.0f, 0.0f));
 	// Rotate!
 	float angleDegrees = 90;
-	Vec3 axis = Vec3(1, 0, 0);
+	axis = Vec3(1, 0, 0);
 	modelMatrix = MMath::rotate(angleDegrees, axis);
 	sphereModelMatrix = MMath::translate(Vec3(0, 1, 0));
 	planeNormal = Vec3(0, 1, 0);
@@ -79,25 +80,40 @@ void Scene1p::HandleEvents(const SDL_Event& sdlEvent) {
 		case SDL_SCANCODE_UP:
 			// Lets make the ball roll away from us (up to you)
 		{
-			Vec3 axis = Vec3(-1, 0, 0);
-			Matrix4 rotation = MMath::rotate(angleDeg, axis);
+			axis = Vec3(-1, 0, 0);
+			rotation = MMath::rotate(angleDeg, axis);
 			// Update the model matrix
-			modelMatrix *= rotation;
+			modelMatrix = rotation * modelMatrix;
 			// update the normal
 			planeNormal = rotation * planeNormal;
 		}
 
 		break;
-		case SDL_SCANCODE_DOWN:
-
+		case SDL_SCANCODE_DOWN: 
+		{
+			axis = Vec3(1, 0, 0);
+			rotation = MMath::rotate(angleDeg, axis);
+			modelMatrix = rotation * modelMatrix;
+			planeNormal = rotation * planeNormal;
 			break;
-		case SDL_SCANCODE_LEFT:
-
-			break;
+		}
+			
 		case SDL_SCANCODE_RIGHT:
-
+		{
+			axis = Vec3(0, 0, -1);
+			rotation = MMath::rotate(angleDeg, axis);
+			modelMatrix = rotation * modelMatrix;
+			planeNormal = rotation * planeNormal;
 			break;
-
+		}
+		case SDL_SCANCODE_LEFT:
+		{
+			axis = Vec3(0, 0, 1);
+			rotation = MMath::rotate(angleDeg, axis);
+			modelMatrix = rotation * modelMatrix;
+			planeNormal = rotation * planeNormal;
+			break;
+		}
 
 
 
@@ -112,7 +128,7 @@ void Scene1p::HandleEvents(const SDL_Event& sdlEvent) {
 
 void Scene1p::Update(const float deltaTime) {
 
-	Vec3 linearVel = sphere->angularVel;
+	//Vec3 linearVel = sphere->angularVel;
 
 	
 	
@@ -122,12 +138,13 @@ void Scene1p::Update(const float deltaTime) {
 	// linear velocity = angular velocity CROSS (radius * plane normal)
 	// sphere->update(deltaTime)
 
-	float angleRadOfPlane; // acos(up vector DOT plane normal)
-	float distanceToPivot = radius * sin(angleRadOfPlane); // radius * sin(angleRad)
+	float angleRadOfPlane = acos(VMath::dot(Vec3(0, 1, 0), VMath::normalize(planeNormal))); // acos(up vector DOT plane normal)
+	float distanceToPivot = sphere->radius * sin(angleRadOfPlane); // radius * sin(angleRad)
 	float weight = sphere->mass * SDL_STANDARD_GRAVITY; // mass * g
-	Vec3 directionOfTorque; // up vector CROSS plane normal
+	Vec3 directionOfTorque = VMath::cross(Vec3(0, 1, 0), planeNormal); // up vector CROSS plane normal
 	Vec3 torque = distanceToPivot * weight * directionOfTorque; // distanceToPivot * weight * direction
-	
+	std::cout << sphere->pos.x << ", " << sphere->pos.y << ", " << sphere->pos.z << std::endl;
+	planeNormal.print();
 
 	sphere->ApplyTorque(torque);
 	// now that angular acceleration has been calculated above we need to update angular velocity
@@ -136,7 +153,7 @@ void Scene1p::Update(const float deltaTime) {
 	sphere->UpdateOrientation(deltaTime);
 	sphere->UpdatePos(deltaTime);
 
-	//sphere->vel = VMath::cross(sphere->angularVel, (sphere->radius * Vec3(0.0f, 1.0f, 0.0f)));
+	sphere->vel = VMath::cross(sphere->angularVel, (sphere->radius * planeNormal));
 
 	//Matrix4 T = MMath::translate(Vec3(0, 1, 0));
 	Matrix4 T = MMath::translate(Vec3(0, sphere->radius, 0) + sphere->pos);

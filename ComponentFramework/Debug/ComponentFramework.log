@@ -1,7 +1,2 @@
-﻿  Scene1p.cpp
-  Warning: Vec4 cross(const Vec4& a, const Vec4& b) read my comments
-  This questionable: Vec4 inverse(const Vec4& v)
-C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Scene1p.cpp(125,8): warning C4101: 'angleRadOfPlane': unreferenced local variable
-C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Scene1p.cpp(126,8): warning C4101: 'distanceToPivot': unreferenced local variable
-C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Scene1p.cpp(127,8): warning C4101: 'weight': unreferenced local variable
+﻿  SceneManager.cpp
   ComponentFramework.vcxproj -> C:\Users\ash\source\repos\ComponentFramework26.157.0\Debug\ComponentFramework.exe

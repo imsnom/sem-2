@@ -1,4 +1,5 @@
 #include "Body.h"
+
 Body::Body(): 
 pos{}
 , vel{}
@@ -61,5 +62,11 @@ void Body::OnDestroy() {
 }
 
 void Body::Render() const {
+}
+Matrix4 Body::GetModelMatrix() const {
+	Matrix4 T = MMath::translate(pos);
+	Matrix4 S = MMath::scale(radius, radius, radius);
+	Matrix4 R = MMath::toMatrix4(orientation);
+	return T * R * S;
 }
 

@@ -45,6 +45,7 @@ public:
 	void ApplyTorque(Vec3 netTorque);
 	void UpdateOrientation(float deltaTime);
 	void UpdateAngularVel(float deltaTime);
+	Matrix4 GetModelMatrix() const;
 };
 
 #endif

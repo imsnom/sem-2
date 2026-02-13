@@ -60,6 +60,15 @@
     <ClCompile Include="Texture.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Scene2p.cpp">
+      <Filter>Source Files\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Collision.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene1g.cpp">
+      <Filter>Source Files\Scenes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Debug.h">
@@ -98,6 +107,15 @@
     <ClInclude Include="Scene1p.h">
       <Filter>Header Files\Scenes</Filter>
     </ClInclude>
+    <ClInclude Include="Scene2p.h">
+      <Filter>Header Files\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Collision.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene1g.h">
+      <Filter>Header Files\Scenes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="GameEngineLog.txt">
@@ -121,6 +139,15 @@
       <Filter>Resource Files</Filter>
     </None>
     <None Include="shaders\texturePhongVert.glsl">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="shaders\texturePhongFragMultiLight.glsl">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="shaders\texturePhongVertMultiLight.glsl">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="shaders\colorFrag.glsl">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>

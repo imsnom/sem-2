@@ -1,13 +1,14 @@
-Tue Feb  3 14:12:50 2026
+Fri Feb 13 14:39:17 2026
 [INFO]: Starting the SceneManager
 [INFO]: OpenGL version: 4.6.0 - Build 32.0.101.7079
 [INFO]: Graphics card vendor Intel
 [INFO]: Graphics card name Intel(R) Graphics
 [INFO]: GLSL Version 4.60 - Build 32.0.101.7079
-[INFO]: Created Scene1p: 
-[INFO]: Loading assets Scene1p: 
+[INFO]: Created Scene2p: 
+[INFO]: Loading assets Scene2p: 
 [INFO]: Uniforms:
 "modelMatrix" loc:2
 "projectionMatrix" loc:0
 "viewMatrix" loc:1
+"color" loc:4
 
