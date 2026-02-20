@@ -7,6 +7,7 @@
 #include "Scene1g.h"
 #include "Scene1p.h" // first physics assignment
 #include "Scene2p.h"
+#include "Scene2g.h"
 
 
 SceneManager::SceneManager(): 
@@ -51,7 +52,7 @@ bool SceneManager::Initialize(std::string name_, int width_, int height_) {
 	}
 
 	/********************************   Default first scene   ***********************/
-	BuildNewScene(SCENE_NUMBER::SCENE2p);
+	BuildNewScene(SCENE_NUMBER::SCENE2g);
 	/********************************************************************************/
 	return true;
 }
@@ -140,6 +141,10 @@ bool SceneManager::BuildNewScene(SCENE_NUMBER scene) {
 
 	case SCENE_NUMBER::SCENE2p:
 		currentScene = new Scene2p();
+		status = currentScene->OnCreate();
+		break;
+	case SCENE_NUMBER::SCENE2g:
+		currentScene = new Scene2g();
 		status = currentScene->OnCreate();
 		break;
 	default:

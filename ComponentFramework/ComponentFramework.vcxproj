@@ -138,6 +138,7 @@
     <ClCompile Include="Scene0p.cpp" />
     <ClCompile Include="Scene1g.cpp" />
     <ClCompile Include="Scene1p.cpp" />
+    <ClCompile Include="Scene2g.cpp" />
     <ClCompile Include="Scene2p.cpp" />
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -146,6 +147,7 @@
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="Texture.h" />
     <ClCompile Include="Timer.cpp" />
+    <ClCompile Include="Trackball.cpp" />
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -156,6 +158,7 @@
     <ClInclude Include="Scene0p.h" />
     <ClInclude Include="Scene1g.h" />
     <ClInclude Include="Scene1p.h" />
+    <ClInclude Include="Scene2g.h" />
     <ClInclude Include="Scene2p.h" />
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="Scene.h" />
@@ -163,6 +166,7 @@
     <ClInclude Include="Shader.h" />
     <ClInclude Include="Timer.h" />
     <ClInclude Include="tiny_obj_loader.h" />
+    <ClInclude Include="Trackball.h" />
     <ClInclude Include="Window.h" />
   </ItemGroup>
   <ItemGroup>
