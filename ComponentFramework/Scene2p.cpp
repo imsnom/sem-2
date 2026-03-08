@@ -10,6 +10,7 @@
 #include "Shader.h"
 #include "Body.h"
 #include "Collision.h"
+#include <QMath.h>
 
 Scene2p::Scene2p() :cueBall{ nullptr },
 shader{ nullptr }, 
@@ -29,7 +30,7 @@ bool Scene2p::OnCreate() {
 	cueBall->OnCreate();
 	cueBall->pos = Vec3(0, 1, 3);
 	cueBall->radius = 1.0f;
-	cueBall->vel = Vec3(0, 0, -1);
+	cueBall->vel = Vec3(0, 0, 0);
 
 	targetBall = new Body();
 	targetBall->OnCreate();
@@ -52,7 +53,16 @@ bool Scene2p::OnCreate() {
 	}
 
 	projectionMatrix = MMath::perspective(45.0f, (16.0f / 9.0f), 0.5f, 100.0f);
-	viewMatrix = MMath::lookAt(Vec3(0.0f, 10.0f, 10.0f), Vec3(0.0f, 0.0f, 0.0f), Vec3(0.0f, 1.0f, 0.0f));
+	//viewMatrix = MMath::lookAt(Vec3(0.0f, 1.0f, 10.0f), Vec3(0.0f, 0.0f, 0.0f), Vec3(0.0f, 1.0f, 0.0f));
+	// instead of using the view matrix, let's use the camera's position and orientation
+	cameraPos = Vec3(0.0f, 1.0f, 10.0f);
+	cameraOrientation = QMath::angleAxisRotation(0, Vec3(0, 1, 0));
+	Matrix4 T = MMath::translate(cameraPos);		 // T for translation matrix
+	Matrix4 R = MMath::toMatrix4(cameraOrientation); // R for rotation matrix
+
+	viewMatrix = MMath::inverse(R) * MMath::inverse(T);
+
+
 	// Rotate!
 	float angleDegrees = 90;
 	axis = Vec3(1, 0, 0);
@@ -84,6 +94,8 @@ void Scene2p::OnDestroy() {
 
 void Scene2p::HandleEvents(const SDL_Event& sdlEvent) {
 	const float angleDeg = 5;
+	trackball.HandleEvents(sdlEvent);
+
 	switch (sdlEvent.type) {
 	case SDL_EVENT_KEY_DOWN:
 		switch (sdlEvent.key.scancode) {
@@ -119,7 +131,13 @@ void Scene2p::HandleEvents(const SDL_Event& sdlEvent) {
 			planeNormal = rotation * planeNormal;
 			break;
 
-
+		case SDL_SCANCODE_SPACE:
+		{
+			Vec4 whackInCameraSpace(0, 0, -1, 0); // all directions have a w=0
+			Vec3 whackInWorldSpace = MMath::inverse(viewMatrix) * whackInCameraSpace;
+			cueBall->vel += whackInWorldSpace;
+		}
+		break;
 
 
 		case SDL_SCANCODE_W:
@@ -136,14 +154,33 @@ void Scene2p::Update(const float deltaTime) {
 	// switch off rolling when starting assignment two
 	if (COLLISION::Detection(*cueBall, *targetBall)) {
 		std::cout << "COLLIDED!\n";
-	}
-	else {
-		std::cout << "NOT COLLIDED!\n";
+		
+		COLLISION::Response(*cueBall, *targetBall);
+
 	}
 
-
+	cueBall->vel.print();
 	cueBall->UpdatePos(deltaTime);
 	targetBall->UpdatePos(deltaTime);
+
+	Quaternion qInitial = cameraOrientation;
+	Quaternion qFinal = trackball.getQuat();
+	Quaternion changeInRotation = qFinal * QMath::conjugate(qInitial);
+	// fancy work to inverse a quaternion is "conjugate"
+
+	cameraOrientation = trackball.getQuat();
+	
+
+	cameraPos -= cueBall->pos;
+
+	cameraPos = QMath::rotate(cameraPos, changeInRotation);
+
+	cameraPos += cueBall->pos;
+
+
+	Matrix4 T = MMath::translate(cameraPos);         // T for Translation Matrix
+	Matrix4 R = MMath::toMatrix4(cameraOrientation); // R for Rotation Matrix
+	viewMatrix = MMath::inverse(R) * MMath::inverse(T);
 	
 
 	// part one of assignment one

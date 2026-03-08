@@ -3,6 +3,8 @@
 #include "Scene.h"
 #include "Vector.h"
 #include <Matrix.h>
+#include <Quaternion.h>
+#include "Trackball.h"
 using namespace MATH;
 
 /// Forward declarations 
@@ -26,6 +28,11 @@ private:
 	Vec3 planeNormal;
 	Vec3 axis;
 	bool drawInWireMode;
+	Trackball trackball;
+
+
+	Vec3 cameraPos;
+	Quaternion cameraOrientation;
 
 public:
 	explicit Scene2p();

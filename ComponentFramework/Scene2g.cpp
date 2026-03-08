@@ -156,12 +156,10 @@ void Scene2g::Update(const float deltaTime) {
 		MMath::scale(0.24f, 0.24f, 0.24f);*/
 
 	eyeBallModelMatrix = MMath::translate(0.6f, 0.25f, 0.9f) *
-		MMath::scale(0.3f, 0.3f, 0.3f);
-						 //MMath::rotate(-90.0f, Vec3(0.0f, 1.0f, 0.0f));
+						 MMath::scale(0.3f, 0.3f, 0.3f);
 
 	eyeBallModelMatrix_2 = MMath::translate(-0.6f, 0.25f, 0.9f) *
-		MMath::scale(0.3f, 0.3f, 0.3f);
-						   //MMath::rotate(-90.0f, Vec3(0.0f, 1.0f, 0.0f));
+						   MMath::scale(0.3f, 0.3f, 0.3f);
 
 }
 
@@ -181,13 +179,11 @@ void Scene2g::Render() const {
 	glUniformMatrix4fv(shader->GetUniformID("projectionMatrix"), 1, GL_FALSE, projection);
 	glUniformMatrix4fv(shader->GetUniformID("viewMatrix"), 1, GL_FALSE, view);
 	glUniform3fv(shader->GetUniformID("lightPos"), 1, lightPos); // sends light position to the gpu
-	//glUniform3fv(shader->GetUniformID("lightPos_2"), 1, lightPos_2);
-
-	//Matrix4 rotation = MMath::toMatrix4(trackball.getQuat());
+	
 
 	
 	Matrix4 rotation = MMath::inverse(MMath::toMatrix4(trackball.getQuat())) * 
-					   MMath::rotate(-90.0f, Vec3(0.0f, 1.0f, 0.0f));
+					   MMath::rotate(-90.0f, Vec3(0.0f, 1.0f, 0.0f)); // the eyes have to be oriented towards the origin here rather than in update
 
 
 
@@ -203,17 +199,6 @@ void Scene2g::Render() const {
 	glBindTexture(GL_TEXTURE_2D, eyeBallTexture->getTextureID());
 	eyeBall_2->Render(GL_TRIANGLES);
 	
-	
-	/*glUniformMatrix4fv(shader->GetUniformID("modelMatrix"), 1, GL_FALSE, earthModelMatrix * moonModelMatrix);
-	glBindTexture(GL_TEXTURE_2D, moonTexture->getTextureID());
-	mesh->Render(GL_TRIANGLES);*/
-
-
-	/*glUniformMatrix4fv(shader->GetUniformID("modelMatrix"), 1, GL_FALSE, earthModelMatrix * moonModelMatrix * skullModelMatrix);
-	glBindTexture(GL_TEXTURE_2D, skullTexture->getTextureID());*/
-	//glUniform4fv(shader->GetUniformID("kd"), 1, colour);
-
-	//skullMesh->Render(GL_TRIANGLES);
 	glBindTexture(GL_TEXTURE_2D, 0);
 	
 	glUseProgram(0);

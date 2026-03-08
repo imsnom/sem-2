@@ -75,6 +75,15 @@
     <ClCompile Include="Trackball.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Scene3g.cpp">
+      <Filter>Source Files\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Skybox.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Skybox.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Debug.h">
@@ -128,6 +137,9 @@
     <ClInclude Include="Trackball.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Scene3g.h">
+      <Filter>Header Files\Scenes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="GameEngineLog.txt">
@@ -160,6 +172,12 @@
       <Filter>Resource Files</Filter>
     </None>
     <None Include="shaders\colorFrag.glsl">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="shaders\skyboxFrag.glsl">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="shaders\skyboxVert.glsl">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>

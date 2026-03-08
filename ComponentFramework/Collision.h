@@ -14,4 +14,6 @@ namespace COLLISION {
 	// Better to pass by const reference as the Body class is getting quite big
 	bool Detection(const Body& a, const Body& b);
 
+	void Response(Body& a, Body& b);
+
 }

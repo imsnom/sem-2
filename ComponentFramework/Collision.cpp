@@ -14,9 +14,22 @@ bool COLLISION::Detection(const Body& a, const Body& b)
 
 	return true;
 
-	
 
+}
 
+void COLLISION::Response(Body& a, Body& b) {
+	Vec3 collisionNormal = a.pos - b.pos;
+	collisionNormal = VMath::normalize(collisionNormal);
+	float relativeVelAlongNormal = VMath::dot((a.vel - b.vel), collisionNormal); // a.vel - b.vel dot collisionNormal
+	if (relativeVelAlongNormal > 0) {
+		return;
+	}
+	float epsilon = 0.9f; // bounciness
+	float impulse = (-(1 + epsilon) * relativeVelAlongNormal) / (1 / a.mass + 1 / b.mass); // 
+
+	// update the velocities
+	a.vel += (impulse * collisionNormal / a.mass);
+	b.vel -= (impulse * collisionNormal / b.mass);
 
 
 }
