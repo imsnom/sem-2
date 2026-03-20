@@ -8,7 +8,7 @@
 #include "Mesh.h"
 #include "Shader.h"
 #include "Body.h"
-#include "Texture.h"
+#include "Texture.cpp"
 
 Scene1g::Scene1g() :sphere{nullptr}, shader{nullptr}, mesh{nullptr},
 					drawInWireMode{false} {

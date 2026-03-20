@@ -25,7 +25,8 @@ private:
 		SCENE4g,
 		SCENE4p,
 		SCENE5,
-		SCENE6
+		SCENE6,
+		SCENE0pr
 	};
 
 	class Scene* currentScene;

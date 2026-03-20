@@ -4,6 +4,7 @@
 #include <QMath.h>
 #include <Quaternion.h>
 #include <MMath.h>
+#include "Mesh.h"
 using namespace MATH; 
 
 /// Just forward declair these classes so I can define a pointer to them
@@ -38,6 +39,8 @@ public:
 	void OnDestroy();
 	void Update(float deltaTime);
 	void UpdatePos(float deltaTime);
+	void UpdateVel(float deltaTime);
+	void StraightLineConstraint(float slope, float yIntercept, float deltaTime);
 	void Render() const;
 	void ApplyForce(Vec3 force);
 	void setAccel(const Vec3 &accel_) { accel = accel_;}
@@ -46,6 +49,8 @@ public:
 	void UpdateOrientation(float deltaTime);
 	void UpdateAngularVel(float deltaTime);
 	Matrix4 GetModelMatrix() const;
+	void SetMesh(const char* filename_);
+	Mesh* GetMesh() const;
 };
 
 #endif

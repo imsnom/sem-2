@@ -84,6 +84,15 @@
     <ClCompile Include="Skybox.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Scene0pr.cpp">
+      <Filter>Source Files\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene3p.cpp">
+      <Filter>Source Files\Scenes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Debug.h">
@@ -140,6 +149,15 @@
     <ClInclude Include="Scene3g.h">
       <Filter>Header Files\Scenes</Filter>
     </ClInclude>
+    <ClInclude Include="Scene0pr.h">
+      <Filter>Header Files\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene3p.h">
+      <Filter>Header Files\Scenes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="GameEngineLog.txt">
@@ -178,6 +196,12 @@
       <Filter>Resource Files</Filter>
     </None>
     <None Include="shaders\skyboxVert.glsl">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="shaders\reflectionFrag.glsl">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="shaders\reflectionVert.glsl">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>

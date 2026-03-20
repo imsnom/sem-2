@@ -2,7 +2,9 @@
 #define TEXTURE_H
 #include <glew.h>
 
+
 class Texture {
+private:
 	GLuint textureID;
 public:
 	Texture();

@@ -1,4 +1,5 @@
-﻿  Collision.cpp
+﻿  Scene3p.cpp
   Warning: Vec4 cross(const Vec4& a, const Vec4& b) read my comments
   This questionable: Vec4 inverse(const Vec4& v)
+C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Scene3p.cpp(130,20): warning C4018: '<': signed/unsigned mismatch
   ComponentFramework.vcxproj -> C:\Users\ash\source\repos\ComponentFramework26.157.0\Debug\ComponentFramework.exe

@@ -135,7 +135,20 @@ void Scene2p::HandleEvents(const SDL_Event& sdlEvent) {
 		{
 			Vec4 whackInCameraSpace(0, 0, -1, 0); // all directions have a w=0
 			Vec3 whackInWorldSpace = MMath::inverse(viewMatrix) * whackInCameraSpace;
-			cueBall->vel += whackInWorldSpace;
+			Vec3 totalLinearVelocity = cueBall->vel + whackInWorldSpace;
+
+			float angVelMag = VMath::mag(totalLinearVelocity) / cueBall->radius;
+
+			if (angVelMag > VERY_SMALL) {
+				Vec3 velNormalized = VMath::normalize(totalLinearVelocity);
+				Vec3 angVelDir = VMath::cross(Vec3(0, 1, 0), velNormalized);
+				cueBall->angularVel = angVelMag * angVelDir;
+				float velMag = angVelMag * cueBall->radius;
+				Vec3 velDir = VMath::cross(VMath::normalize(cueBall->angularVel), Vec3(0, 1, 0));
+				cueBall->vel = velMag * velDir;
+			}
+			//cueBall->vel += whackInWorldSpace;
+
 		}
 		break;
 
@@ -157,9 +170,43 @@ void Scene2p::Update(const float deltaTime) {
 		
 		COLLISION::Response(*cueBall, *targetBall);
 
-	}
 
-	cueBall->vel.print();
+	}
+	//Vec4 whackInCameraSpace(0, 0, 0, 0); // all directions have a w=0
+	//Vec3 whackInWorldSpace = MMath::inverse(viewMatrix) * whackInCameraSpace;
+	//Vec3 totalLinearVelocity = targetBall->vel + whackInWorldSpace;
+	{
+		float angVelMag = VMath::mag(targetBall->vel) / targetBall->radius;
+
+		if (angVelMag > VERY_SMALL) {
+			Vec3 velNormalized = VMath::normalize(targetBall->vel);
+			Vec3 angVelDir = VMath::cross(Vec3(0, 1, 0), velNormalized);
+			targetBall->angularVel = angVelMag * angVelDir;
+			float velMag = angVelMag * targetBall->radius;
+			Vec3 velDir = VMath::cross(VMath::normalize(targetBall->angularVel), Vec3(0, 1, 0));
+			targetBall->UpdateOrientation(deltaTime);
+
+			//cueBall->vel = velMag * velDir;
+		}
+	}
+	{
+		float angVelMag = VMath::mag(cueBall->vel) / targetBall->radius;
+
+		if (angVelMag > VERY_SMALL) {
+			Vec3 velNormalized = VMath::normalize(cueBall->vel);
+			Vec3 angVelDir = VMath::cross(Vec3(0, 1, 0), velNormalized);
+			cueBall->angularVel = angVelMag * angVelDir;
+			float velMag = angVelMag * cueBall->radius;
+			Vec3 velDir = VMath::cross(VMath::normalize(cueBall->angularVel), Vec3(0, 1, 0));
+			cueBall->UpdateOrientation(deltaTime);
+
+			//cueBall->vel = velMag * velDir;
+		}
+	}
+	
+	//cueBall->UpdateOrientation(deltaTime);
+
+	//cueBall->vel.print();
 	cueBall->UpdatePos(deltaTime);
 	targetBall->UpdatePos(deltaTime);
 
@@ -181,38 +228,6 @@ void Scene2p::Update(const float deltaTime) {
 	Matrix4 T = MMath::translate(cameraPos);         // T for Translation Matrix
 	Matrix4 R = MMath::toMatrix4(cameraOrientation); // R for Rotation Matrix
 	viewMatrix = MMath::inverse(R) * MMath::inverse(T);
-	
-
-	// part one of assignment one
-	// can you make the ball move based on angular velocity using umer's scribbles on the board
-	// linear velocity = angular velocity CROSS (radius * plane normal)
-	// sphere->update(deltaTime)
-
-	//float angleRadOfPlane = acos(VMath::dot(axis, planeNormal)); // acos(up vector DOT plane normal)
-	//float distanceToPivot = cueBall->radius * sin(angleRadOfPlane); // radius * sin(angleRad)
-	//float weight = cueBall->mass * SDL_STANDARD_GRAVITY; // mass * g
-	//Vec3 directionOfTorque = VMath::cross(axis, planeNormal); // up vector CROSS plane normal
-	//Vec3 torque = distanceToPivot * weight * directionOfTorque; // distanceToPivot * weight * direction
-	//
-
-	//cueBall->ApplyTorque(torque);
-	//// now that angular acceleration has been calculated above we need to update angular velocity
-	//cueBall->UpdateAngularVel(deltaTime);
-
-	//cueBall->UpdateOrientation(deltaTime);
-	//cueBall->UpdatePos(deltaTime);
-
-	////sphere->vel = VMath::cross(sphere->angularVel, (sphere->radius * Vec3(0.0f, 1.0f, 0.0f)));
-
-	////Matrix4 T = MMath::translate(Vec3(0, 1, 0));
-	//Matrix4 T = MMath::translate(Vec3(0, cueBall->radius, 0) + cueBall->pos);
-
-	//Matrix4 R = MMath::toMatrix4(cueBall->orientation);
-
-	//Matrix4 S = MMath::scale(cueBall->radius, cueBall->radius, cueBall->radius);
-
-	//cueBall->GetModelMatrix() = T * R * S;
-	
 
 }
 

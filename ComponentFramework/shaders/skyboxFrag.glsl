@@ -1,10 +1,12 @@
 #version 450
 #extension GL_ARB_separate_shader_objects : enable
 
-in vec3 texCoords;
+layout(location = 0) out vec4 fragColor;
 
+in vec3 texCoords;
 uniform samplerCube skybox;
 
-void main() {
-	//fragColor = texture(skybox, texCoords)
+void main()
+{    
+    fragColor = texture(skybox, texCoords);
 }

@@ -15,7 +15,10 @@ pos{}
 {
 }
 
-Body::~Body() {}
+Body::~Body() {
+	if (mesh) delete mesh;
+	if (texture) delete texture;
+}
 
 void Body::Update(float deltaTime) {
 	/// From 1st semester physics class
@@ -25,6 +28,9 @@ void Body::Update(float deltaTime) {
 void Body::UpdatePos(float deltaTime) {
 	// just update position based on velocity from the roll
 	pos += vel * deltaTime;
+}
+void Body::UpdateVel(float deltaTime) {
+	vel += accel * deltaTime;
 }
 void Body::ApplyForce(Vec3 force) {
 	accel = force / mass;
@@ -54,6 +60,14 @@ void Body::ApplyTorque(Vec3 netTorque) {
 
 }
 
+void Body::SetMesh(const char* filename_) {
+	mesh = new Mesh(filename_);
+	mesh->OnCreate();
+}
+Mesh* Body::GetMesh() const {
+	return mesh;
+}
+
 bool Body::OnCreate() {
 	return true;
 }
@@ -69,4 +83,17 @@ Matrix4 Body::GetModelMatrix() const {
 	Matrix4 R = MMath::toMatrix4(orientation);
 	return T * R * S;
 }
+
+void Body::StraightLineConstraint(float slope, float yIntercept, float deltaTime) {
+	float positionConstraint = pos.y - slope * pos.x - yIntercept;
+	Vec3 JT = Vec3(-slope, 1, 0); // this is the jacobian transpose
+	float baumgarteNumber = 0.1f;
+	float bias = baumgarteNumber * positionConstraint / deltaTime; // might have messed uo sign on that
+	float JJT = pow(slope, 2) + 1;
+	float JV = vel.y - slope * vel.x;
+	float lagrangian = (-JV - bias) * mass / JJT; // mass needed? maybe not
+	vel += JT * lagrangian / mass;
+
+}
+
 

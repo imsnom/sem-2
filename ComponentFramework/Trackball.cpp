@@ -3,7 +3,6 @@
 #include "Trackball.h"
 #include <VMath.h>
 #include <QMath.h>
-#include <MMath.h>
 
 ///https://www.khronos.org/opengl/wiki/Object_Mouse_Trackball
 using namespace MATH;
@@ -29,10 +28,10 @@ void Trackball::HandleEvents(const SDL_Event& sdlEvent) {
 		onLeftMouseUp(sdlEvent.button.x, sdlEvent.button.y);
 	}
 	else if (sdlEvent.type == SDL_EventType::SDL_EVENT_MOUSE_MOTION &&
-		SDL_GetMouseState(NULL, NULL) & SDL_BUTTON_MASK(SDL_BUTTON_LEFT)) {
+		SDL_GetMouseState(nullptr, nullptr) & SDL_BUTTON_MASK(SDL_BUTTON_LEFT)) {
 		onMouseMove(sdlEvent.button.x, sdlEvent.button.y);
 	}
-	else if (sdlEvent.type == SDL_EventType::SDL_EVENT_WINDOW_PIXEL_SIZE_CHANGED) {
+	else if (sdlEvent.type == SDL_EVENT_WINDOW_PIXEL_SIZE_CHANGED) {
 		setWindowDimensions();
 	}
 }
@@ -55,7 +54,7 @@ void Trackball::onMouseMove(int x, int y) {
 	if (cosAngle <= VERY_SMALL) {
 		printf("%f\n", cosAngle);
 	}
-	float angle = acos(cosAngle) * 180.0f / 3.1415926; /// acos() returns radians must convert to degrees
+	float angle = acos(cosAngle) * 180.0f / 3.141592654f; /// acos() returns radians must convert to degrees
 	Vec3 rotAxis = VMath::cross(beginV, endV);
 	Quaternion delta = QMath::angleAxisRotation(angle, rotAxis); // UN - Songho used the name "delta" quaternion. I like that as it's the change in rotation
 	mouseRotationQuat = prevQuat * delta; // UN - Spent a day realizing that order of multiplication is important here

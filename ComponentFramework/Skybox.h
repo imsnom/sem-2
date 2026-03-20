@@ -5,13 +5,13 @@
 #include <SDL3_image/SDL_image.h>
 
 class Skybox {
+private:
 	GLuint textureID;
 	Mesh* cubeMesh;
 	Shader* skyboxShader;
-	const char* posXFilename, * negXFilename, * posYFilename, * negYFilename, * posZFilename, * negZFilename;
-
-public: 
-	Skybox(const char* posXFilename_, const char* negXFilename_, const char* posYFilename_, const char* negYFilename_, const char* posZFilename_, const char* negZFilename_, Mesh* cube_);
+	const char* posXfilename, * negXfilename, * posYfilename, * negYfilename, * posZfilename, * negZfilename;
+public:
+	Skybox(const char* posXfilename_, const char* negXfilename_, const char* posYfilename_, const char* negYfilename_, const char* posZfilename_, const char* negZfilename_);
 	~Skybox();
 	bool OnCreate();
 	void OnDestroy();
@@ -19,6 +19,9 @@ public:
 	void Render() const;
 	bool LoadImages();
 	inline GLuint getTextureID() const { return textureID; }
-
+	inline Shader* getSkyboxShader() {
+		return skyboxShader;
+	}
 
 };
+

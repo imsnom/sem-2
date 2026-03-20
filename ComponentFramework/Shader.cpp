@@ -13,7 +13,8 @@ Shader::Shader(const char* vertFilename_, const char* fragFilename_,
 	fragFilename(fragFilename_),
 	tessCtrlFilename(tessCtrlFilename_),
 	tessEvalFilename(tessEvalFilename_),
-	geomFilename(geomFilename_) { }
+	geomFilename(geomFilename_) {
+}
 
 
 Shader::~Shader() {}
