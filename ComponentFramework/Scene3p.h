@@ -7,7 +7,7 @@
 #include <Quaternion.h>
 #include "Trackball.h"
 #include <vector>
-using namespace MATH;
+using namespace MATH;	
 
 /// Forward declarations 
 union SDL_Event;
@@ -20,12 +20,30 @@ private:
 	// We will have one big sphere for the jellyfish's head 
 	Body* jellyfishHead;
 	// Smaller spheres just to show us where the tentacles are anchored 
+	
 	std::vector<Body*> anchors;
+	std::vector<Matrix4> modelMatricesAnchors;
+	std::vector<Matrix4> modelMatricesTentacleSpheres;
+	std::vector<Body*> tentacleSpheres1;
+	std::vector<Body*> tentacleSpheres2;
+	std::vector<Body*> tentacleSpheres3;
+	std::vector<Body*> tentacleSpheres4;
+	std::vector<Body*> tentacleSpheres5;
+	std::vector<Body*> tentacleSpheres6;
+	std::vector<Body*> tentacleSpheres7;
+	std::vector<Body*> tentacleSpheres8;
+	std::vector<Body*> tentacleSpheres9;
+	std::vector<Body*> tentacleSpheres10;
+	std::vector<std::vector<Body*>> tSpheres = { tentacleSpheres1, tentacleSpheres2, tentacleSpheres3,
+	tentacleSpheres4, tentacleSpheres5, tentacleSpheres6, tentacleSpheres7, tentacleSpheres8, tentacleSpheres9, tentacleSpheres10};
 	// And the smallest spheres will make up the tentacles 
-	std::vector<Body*> tentacleSpheres;
+	
+
+
+
 	// These variables will tells us how long each tentacle will be  
 	// and the spacing between individual spheres 
-	int numSpheresPerAnchor;
+	const int numSpheresPerAnchor;
 	float spacing;
 
 	Shader* shader;

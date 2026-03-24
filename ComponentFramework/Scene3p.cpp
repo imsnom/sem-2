@@ -37,25 +37,26 @@ bool Scene3p::OnCreate() {
 
 	const int numAnchors = 10;
 	Vec3 anchorPos(-6.0f, 0.0f, -25);
+	Vec3 pos;
 	for (int i = 0; i < numAnchors; i++) {
-		anchors.push_back(new Body());
+		anchors.push_back({ new Body() });
 		anchors[i]->pos = anchorPos;
 		anchors[i]->radius = 0.5f;
 		// Move the anchor position for the next swing through this loop 
 		anchorPos += Vec3(spacing, 0, 0);
 		// We will use the jellyfish sphere mesh for all our anchors
 		// So I won't bother with setting up meshes for each anchor
-
-		
+		for (int j = 0; j < numSpheresPerAnchor; j++) {
+			pos = anchors[i]->pos + Vec3(0, -spacing * (j + 1), 0);
+			tSpheres[i].push_back(new Body());
+			tSpheres[i][j]->pos = pos;
+			tSpheres[i][j]->radius = 0.2f;
+			tSpheres[i][j]->mass = 1.0f;
+			
+		}
 	}
-	for (int i = 0; i < numSpheresPerAnchor; i++) {
-		// 
-		Vec3 pos = anchors[0]->pos + Vec3(0, -spacing * (i+ 1), 0); // possible bug here
-		tentacleSpheres.push_back(new Body());
-		tentacleSpheres[i]->pos = pos;
-		tentacleSpheres[i]->radius = 0.2f;
-		tentacleSpheres[i]->mass = 1.0f;
-	}
+	
+	
 
 
 	shader = new Shader("shaders/defaultVert.glsl", "shaders/colorFrag.glsl");
@@ -82,10 +83,11 @@ void Scene3p::OnDestroy() {
 	jellyfishHead->OnDestroy();
 	delete jellyfishHead;
 
-	
-	for (Body* tentacleSphere : tentacleSpheres) {
-		tentacleSphere->OnDestroy();
-		delete tentacleSphere;
+	for (int i = 0; i < 10; i++) {
+		for (Body* tentacleSphere : tSpheres[i]) {
+			tentacleSphere->OnDestroy();
+			delete tentacleSphere;
+		}
 	}
 	for (Body* anchor : anchors) {
 		anchor->OnDestroy();
@@ -126,20 +128,25 @@ void Scene3p::HandleEvents(const SDL_Event& sdlEvent) {
 
 void Scene3p::Update(const float deltaTime) {
 
-	float g = 1;
-	for (int i = 0; i < tentacleSpheres.size(); i++) {
-		Vec3 gravityForce = Vec3(0, -g, 0.0f) * tentacleSpheres[i]->mass;
-		float dragCoeff = 1.5f;
-		Vec3 dragForce = -dragCoeff * tentacleSpheres[i]->vel;
-		tentacleSpheres[i]->ApplyForce(gravityForce + dragForce);
-		tentacleSpheres[i]->UpdateVel(deltaTime);
-		float slope = -1;
-		float yIntercept = 1;
-		tentacleSpheres[i]->StraightLineConstraint(slope, yIntercept, deltaTime);
-		tentacleSpheres[i]->UpdatePos(deltaTime);
+	float g = 9.8;
+	for (int j = 0; j < 10; j++) {
+		for (int i = 0; i < tSpheres[j].size(); i++) {
+			Vec3 gravityForce = Vec3(0, -g, 0.0f) * tSpheres[j][i]->mass;
+			float dragCoeff = 2.5f;
+			Vec3 dragForce = -dragCoeff * tSpheres[j][i]->vel;
+			if (VMath::mag(tSpheres[j][i]->vel) > 1.0f) {
+				dragForce = -dragCoeff * tSpheres[j][i]->vel * VMath::mag(tSpheres[j][i]->vel);
+			}
+			tSpheres[j][i]->ApplyForce(gravityForce + dragForce);
+			tSpheres[j][i]->UpdateVel(deltaTime);
+			float slope = -2;
+			float yIntercept = -1;
+			tSpheres[j][i]->StraightLineConstraint(slope, yIntercept, deltaTime);
+			tSpheres[j][i]->UpdatePos(deltaTime);
 
+		}
 	}
-
+	
 
 	// Let's set up an orbit camera using the trackball
 	// Rotate the position
@@ -187,10 +194,13 @@ void Scene3p::Render() const {
 	for (Body* anchor : anchors) {
 		glUniformMatrix4fv(shader->GetUniformID("modelMatrix"), 1, GL_FALSE, anchor->GetModelMatrix());
 		jellyfishHead->GetMesh()->Render(GL_TRIANGLES);
+		
 	}
-	for (Body* tentacleSphere : tentacleSpheres) {
-		glUniformMatrix4fv(shader->GetUniformID("modelMatrix"), 1, GL_FALSE, tentacleSphere->GetModelMatrix());
-		jellyfishHead->GetMesh()->Render(GL_TRIANGLES);
+	for (int i = 0; i < 10; i++) {
+		for (Body* tentacleSphere : tSpheres[i]) {
+			glUniformMatrix4fv(shader->GetUniformID("modelMatrix"), 1, GL_FALSE, tentacleSphere->GetModelMatrix());
+			jellyfishHead->GetMesh()->Render(GL_TRIANGLES);
+		}
 	}
 
 	glUseProgram(0);

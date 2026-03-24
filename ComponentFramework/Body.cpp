@@ -85,10 +85,15 @@ Matrix4 Body::GetModelMatrix() const {
 }
 
 void Body::StraightLineConstraint(float slope, float yIntercept, float deltaTime) {
+	if (deltaTime < VERY_SMALL) {
+		return;
+	}
 	float positionConstraint = pos.y - slope * pos.x - yIntercept;
 	Vec3 JT = Vec3(-slope, 1, 0); // this is the jacobian transpose
 	float baumgarteNumber = 0.1f;
-	float bias = baumgarteNumber * positionConstraint / deltaTime; // might have messed uo sign on that
+	// watch out for divide by zero
+	
+	float bias = baumgarteNumber * positionConstraint / deltaTime; // might have messed up sign on that
 	float JJT = pow(slope, 2) + 1;
 	float JV = vel.y - slope * vel.x;
 	float lagrangian = (-JV - bias) * mass / JJT; // mass needed? maybe not
