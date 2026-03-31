@@ -104,15 +104,28 @@ void Scene3p::HandleEvents(const SDL_Event& sdlEvent) {
 	case SDL_EVENT_KEY_DOWN:
 		switch (sdlEvent.key.scancode) {
 		case SDL_SCANCODE_UP:
+			jellyfishHead->pos.z -= 0.1;
+			for (Body* anchor : anchors) {
+				anchor->pos.z -= 0.1;
+			}
 			break;
 		case SDL_SCANCODE_DOWN:
-
+			jellyfishHead->pos.z += 0.1;
+			for (Body* anchor : anchors) {
+				anchor->pos.z -= 0.1;
+			}
 			break;
 		case SDL_SCANCODE_LEFT:
-
+			jellyfishHead->pos.x -= 0.1;
+			for (Body* anchor : anchors) {
+				anchor->pos.x -= 0.1;
+			}
 			break;
 		case SDL_SCANCODE_RIGHT:
-
+			jellyfishHead->pos.x += 0.1;
+			for (Body* anchor : anchors) {
+				anchor->pos.x += 0.1;
+			}
 			break;
 		case SDL_SCANCODE_SPACE:
 			break;
@@ -128,20 +141,36 @@ void Scene3p::HandleEvents(const SDL_Event& sdlEvent) {
 
 void Scene3p::Update(const float deltaTime) {
 
-	float g = 9.8;
+	float g = 1;
 	for (int j = 0; j < 10; j++) {
 		for (int i = 0; i < tSpheres[j].size(); i++) {
 			Vec3 gravityForce = Vec3(0, -g, 0.0f) * tSpheres[j][i]->mass;
-			float dragCoeff = 2.5f;
+			float dragCoeff = 1.5f;
 			Vec3 dragForce = -dragCoeff * tSpheres[j][i]->vel;
-			if (VMath::mag(tSpheres[j][i]->vel) > 1.0f) {
-				dragForce = -dragCoeff * tSpheres[j][i]->vel * VMath::mag(tSpheres[j][i]->vel);
-			}
+			
 			tSpheres[j][i]->ApplyForce(gravityForce + dragForce);
 			tSpheres[j][i]->UpdateVel(deltaTime);
 			float slope = -2;
 			float yIntercept = -1;
-			tSpheres[j][i]->StraightLineConstraint(slope, yIntercept, deltaTime);
+			//tSpheres[j][i]->RodConstraint(deltaTime, anchors[j]->pos, spacing);
+			//tSpheres[j][i]->StraightLineConstraint(slope, yIntercept, deltaTime);
+			float circleRadius = spacing;
+			Vec3 circleCenter;
+
+			float sphereRadius = spacing;
+			Vec3 sphereCenter;
+
+			if (i == 0) {
+				circleCenter = anchors[j]->pos;
+				//sphereCenter = anchors[j]->pos;
+
+			}
+			else {
+				circleCenter = tSpheres[j][i - 1]->pos;
+				//sphereCenter = tSpheres[j][i-1]->pos;
+			}
+			//tSpheres[j][i]->RodConstraint(deltaTime, circleCenter, spacing);
+			tSpheres[j][i]->CircleConstraint(circleRadius, circleCenter, deltaTime);
 			tSpheres[j][i]->UpdatePos(deltaTime);
 
 		}

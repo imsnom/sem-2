@@ -41,6 +41,9 @@ public:
 	void UpdatePos(float deltaTime);
 	void UpdateVel(float deltaTime);
 	void StraightLineConstraint(float slope, float yIntercept, float deltaTime);
+	void RodConstraint(float deltaTime, Vec3 anchorPoint, float rodLength);
+	void CircleConstraint(float circleRadius, Vec3 circleCenter, float deltaTime);
+	void SphereConstraint(float sphereRadius, Vec3 sphereCenter, float deltaTime);
 	void Render() const;
 	void ApplyForce(Vec3 force);
 	void setAccel(const Vec3 &accel_) { accel = accel_;}

@@ -292,7 +292,7 @@ void Shader::SetUniformLocations() {
 	free(name);
 }
 
-/// Read from the specified file and return a char array from the heap 
+/// Read from a specified file and return a char array from the heap 
 /// The memory must be deleted within this class. It may not be the best way 
 /// to do this but it is all private and I did delete it! SSF
 char* Shader::ReadTextFile(const char* filename) {
@@ -300,7 +300,7 @@ char* Shader::ReadTextFile(const char* filename) {
 	std::ifstream file(filename, std::ios::binary);
 	if (file.is_open()) {								/// Open the file
 		file.seekg(0, std::ios::end);					/// goto the end of the file
-		int bufferSize = (int)file.tellg();				/// Get the length of the file
+		int bufferSize = (int)file.tellg();			/// Get the length of the file
 		if (bufferSize == 0) {							/// If zero, bad file
 			std::string errorMsg("Can't read shader file: ");
 			std::string str2(filename);

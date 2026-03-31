@@ -100,5 +100,53 @@ void Body::StraightLineConstraint(float slope, float yIntercept, float deltaTime
 	vel += JT * lagrangian / mass;
 
 }
+void Body::RodConstraint(float deltaTime, Vec3 anchorPoint, float rodLength) {
+	if (deltaTime < VERY_SMALL) {
+		return;
+	}
+	Vec3 rodVector = pos - anchorPoint;
+	float positionConstraint = VMath::mag(rodVector) - rodLength;
+	float JV = VMath::dot(rodVector, vel) / VMath::mag(rodVector);
+	const float baumgarteNumber = 0.1f;
+	float b = -(baumgarteNumber / deltaTime) * positionConstraint;
+	float lambda = -mass * (JV + b);
+	Vec3 JTransposed = rodVector / VMath::mag(rodVector);
+	Vec3 deltaVel = JTransposed * lambda / mass;
+	vel += deltaVel;
+}
+void Body::CircleConstraint(float circleRadius, Vec3 circleCenter, float deltaTime) {
+	if (deltaTime < VERY_SMALL) {
+		return;
+	}
+	float positionConstraint = pow((pos.x - circleCenter.x), 2) + pow((pos.y - circleCenter.y), 2) - pow(circleRadius, 2);
 
+	Vec3 JT = Vec3(2 * pos.x - 2 * circleCenter.x, 2 * pos.y - 2 * circleCenter.y, 0);
+	float baumgarteNumber = 0.1f;
+	// watch out for divide by zero
+
+	float bias = baumgarteNumber * positionConstraint / deltaTime; // might have messed up sign on that
+	float JJT = pow(JT.x, 2) + pow(JT.y, 2); // JT dot JT also works for this
+	float JV = (2 * pos.x * vel.x - 2 * vel.x * circleCenter.x) + (2 * pos.y * vel.y - 2 * vel.y * circleCenter.y);
+	float lagrangian = (-JV - bias) * mass / JJT; // mass needed? maybe not
+	vel += JT * lagrangian / mass;
+
+}
+
+void Body::SphereConstraint(float sphereRadius, Vec3 sphereCenter, float deltaTime) {
+	if (deltaTime < VERY_SMALL) {
+		return;
+	}
+	float positionConstraint = pow((pos.x - sphereCenter.x), 2) + pow((pos.y - sphereCenter.y), pow(pos.z - sphereCenter.z, 2)) - pow(sphereRadius, 2);
+
+	Vec3 JT = Vec3(2 * pos.x - 2 * sphereCenter.x, 2 * pos.y - 2 * sphereCenter.y, 2 * pos.z - 2 * sphereCenter.z);
+	float baumgarteNumber = 0.1f;
+	// watch out for divide by zero
+
+	float bias = baumgarteNumber * positionConstraint / deltaTime; // might have messed up sign on that
+	float JJT = pow(JT.x, 2) + pow(JT.y, 2); // JT dot JT also works for this
+	float JV = (2 * pos.x * vel.x - 2 * vel.x * sphereCenter.x) + (2 * pos.y * vel.y - 2 * vel.y * sphereCenter.y) + (2 * pos.z * vel.z - 2 * vel.z * sphereCenter.z);
+	float lagrangian = (-JV - bias) * mass / JJT; // mass needed? maybe not
+	vel += JT * lagrangian / mass;
+
+}
 

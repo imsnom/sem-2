@@ -16,7 +16,7 @@ private:
 	const char* tessEvalFilename;
 	const char* geomFilename;
 
-	GLuint shaderID;
+	GLuint  shaderID;
 	GLuint vertShaderID;
 	GLuint fragShaderID;
 	GLuint tessCtrlShaderID;
