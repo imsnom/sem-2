@@ -3,32 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\ash\\source\\repos\\ComponentFramework26.157.0\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{614C2865-E38B-423B-8A72-E9D57BC43A73}|ComponentFramework\\ComponentFramework.vcxproj|C:\\Users\\ash\\source\\repos\\ComponentFramework26.157.0\\ComponentFramework\\Scene3p.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{614C2865-E38B-423B-8A72-E9D57BC43A73}|ComponentFramework\\ComponentFramework.vcxproj|solutionrelative:ComponentFramework\\Scene3p.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{614C2865-E38B-423B-8A72-E9D57BC43A73}|ComponentFramework\\ComponentFramework.vcxproj|C:\\Users\\ash\\source\\repos\\ComponentFramework26.157.0\\ComponentFramework\\Scene4p.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{614C2865-E38B-423B-8A72-E9D57BC43A73}|ComponentFramework\\ComponentFramework.vcxproj|solutionrelative:ComponentFramework\\Scene4p.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{614C2865-E38B-423B-8A72-E9D57BC43A73}|ComponentFramework\\ComponentFramework.vcxproj|C:\\Users\\ash\\source\\repos\\ComponentFramework26.157.0\\ComponentFramework\\Scene3p.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{614C2865-E38B-423B-8A72-E9D57BC43A73}|ComponentFramework\\ComponentFramework.vcxproj|solutionrelative:ComponentFramework\\Scene3p.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{614C2865-E38B-423B-8A72-E9D57BC43A73}|ComponentFramework\\ComponentFramework.vcxproj|C:\\Users\\ash\\source\\repos\\ComponentFramework26.157.0\\ComponentFramework\\Body.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{614C2865-E38B-423B-8A72-E9D57BC43A73}|ComponentFramework\\ComponentFramework.vcxproj|solutionrelative:ComponentFramework\\Body.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{614C2865-E38B-423B-8A72-E9D57BC43A73}|ComponentFramework\\ComponentFramework.vcxproj|C:\\Users\\ash\\source\\repos\\ComponentFramework26.157.0\\ComponentFramework\\Scene4p.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{614C2865-E38B-423B-8A72-E9D57BC43A73}|ComponentFramework\\ComponentFramework.vcxproj|solutionrelative:ComponentFramework\\Scene4p.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{614C2865-E38B-423B-8A72-E9D57BC43A73}|ComponentFramework\\ComponentFramework.vcxproj|C:\\Users\\ash\\source\\repos\\ComponentFramework26.157.0\\ComponentFramework\\SceneManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{614C2865-E38B-423B-8A72-E9D57BC43A73}|ComponentFramework\\ComponentFramework.vcxproj|solutionrelative:ComponentFramework\\SceneManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{614C2865-E38B-423B-8A72-E9D57BC43A73}|ComponentFramework\\ComponentFramework.vcxproj|C:\\Users\\ash\\source\\repos\\ComponentFramework26.157.0\\ComponentFramework\\Body.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{614C2865-E38B-423B-8A72-E9D57BC43A73}|ComponentFramework\\ComponentFramework.vcxproj|solutionrelative:ComponentFramework\\Body.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{614C2865-E38B-423B-8A72-E9D57BC43A73}|ComponentFramework\\ComponentFramework.vcxproj|C:\\Users\\ash\\source\\repos\\ComponentFramework26.157.0\\ComponentFramework\\Texture.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{614C2865-E38B-423B-8A72-E9D57BC43A73}|ComponentFramework\\ComponentFramework.vcxproj|solutionrelative:ComponentFramework\\Texture.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{614C2865-E38B-423B-8A72-E9D57BC43A73}|ComponentFramework\\ComponentFramework.vcxproj|C:\\Users\\ash\\source\\repos\\ComponentFramework26.157.0\\ComponentFramework\\Texture.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{614C2865-E38B-423B-8A72-E9D57BC43A73}|ComponentFramework\\ComponentFramework.vcxproj|solutionrelative:ComponentFramework\\Texture.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -62,90 +46,42 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Scene3p.cpp",
-              "DocumentMoniker": "C:\\Users\\ash\\source\\repos\\ComponentFramework26.157.0\\ComponentFramework\\Scene3p.cpp",
-              "RelativeDocumentMoniker": "ComponentFramework\\Scene3p.cpp",
-              "ToolTip": "C:\\Users\\ash\\source\\repos\\ComponentFramework26.157.0\\ComponentFramework\\Scene3p.cpp",
-              "RelativeToolTip": "ComponentFramework\\Scene3p.cpp",
-              "ViewState": "AgIAAJcAAAAAAAAAAAAAACgAAAAnAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "Scene4p.cpp",
+              "DocumentMoniker": "C:\\Users\\ash\\source\\repos\\ComponentFramework26.157.0\\ComponentFramework\\Scene4p.cpp",
+              "RelativeDocumentMoniker": "ComponentFramework\\Scene4p.cpp",
+              "ToolTip": "C:\\Users\\ash\\source\\repos\\ComponentFramework26.157.0\\ComponentFramework\\Scene4p.cpp",
+              "RelativeToolTip": "ComponentFramework\\Scene4p.cpp",
+              "ViewState": "AgIAAJYAAAAAAAAAAAAAAI0AAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-03-31T17:03:54.383Z",
+              "WhenOpened": "2026-04-07T17:20:49.551Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Scene3p.h",
-              "DocumentMoniker": "C:\\Users\\ash\\source\\repos\\ComponentFramework26.157.0\\ComponentFramework\\Scene3p.h",
-              "RelativeDocumentMoniker": "ComponentFramework\\Scene3p.h",
-              "ToolTip": "C:\\Users\\ash\\source\\repos\\ComponentFramework26.157.0\\ComponentFramework\\Scene3p.h",
-              "RelativeToolTip": "ComponentFramework\\Scene3p.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "Scene4p.h",
+              "DocumentMoniker": "C:\\Users\\ash\\source\\repos\\ComponentFramework26.157.0\\ComponentFramework\\Scene4p.h",
+              "RelativeDocumentMoniker": "ComponentFramework\\Scene4p.h",
+              "ToolTip": "C:\\Users\\ash\\source\\repos\\ComponentFramework26.157.0\\ComponentFramework\\Scene4p.h",
+              "RelativeToolTip": "ComponentFramework\\Scene4p.h",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABUAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-03-31T17:03:51.891Z",
+              "WhenOpened": "2026-04-07T17:21:05.345Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Body.cpp",
-              "DocumentMoniker": "C:\\Users\\ash\\source\\repos\\ComponentFramework26.157.0\\ComponentFramework\\Body.cpp",
-              "RelativeDocumentMoniker": "ComponentFramework\\Body.cpp",
-              "ToolTip": "C:\\Users\\ash\\source\\repos\\ComponentFramework26.157.0\\ComponentFramework\\Body.cpp",
-              "RelativeToolTip": "ComponentFramework\\Body.cpp",
-              "ViewState": "AgIAAFsAAAAAAAAAAAAUwIkAAAACAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-01-16T20:21:56.27Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Body.h",
-              "DocumentMoniker": "C:\\Users\\ash\\source\\repos\\ComponentFramework26.157.0\\ComponentFramework\\Body.h",
-              "RelativeDocumentMoniker": "ComponentFramework\\Body.h",
-              "ToolTip": "C:\\Users\\ash\\source\\repos\\ComponentFramework26.157.0\\ComponentFramework\\Body.h",
-              "RelativeToolTip": "ComponentFramework\\Body.h",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAAAC0AAABPAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-01-16T20:22:16.435Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Texture.h",
-              "DocumentMoniker": "C:\\Users\\ash\\source\\repos\\ComponentFramework26.157.0\\ComponentFramework\\Texture.h",
-              "RelativeDocumentMoniker": "ComponentFramework\\Texture.h",
-              "ToolTip": "C:\\Users\\ash\\source\\repos\\ComponentFramework26.157.0\\ComponentFramework\\Texture.h",
-              "RelativeToolTip": "ComponentFramework\\Texture.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAALAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-01-27T16:35:18.665Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Texture.cpp",
-              "DocumentMoniker": "C:\\Users\\ash\\source\\repos\\ComponentFramework26.157.0\\ComponentFramework\\Texture.cpp",
-              "RelativeDocumentMoniker": "ComponentFramework\\Texture.cpp",
-              "ToolTip": "C:\\Users\\ash\\source\\repos\\ComponentFramework26.157.0\\ComponentFramework\\Texture.cpp",
-              "RelativeToolTip": "ComponentFramework\\Texture.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAPAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-01-23T19:22:15.851Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
               "Title": "SceneManager.cpp",
               "DocumentMoniker": "C:\\Users\\ash\\source\\repos\\ComponentFramework26.157.0\\ComponentFramework\\SceneManager.cpp",
               "RelativeDocumentMoniker": "ComponentFramework\\SceneManager.cpp",
               "ToolTip": "C:\\Users\\ash\\source\\repos\\ComponentFramework26.157.0\\ComponentFramework\\SceneManager.cpp",
               "RelativeToolTip": "ComponentFramework\\SceneManager.cpp",
-              "ViewState": "AgIAAHYAAAAAAAAAAAAEwIYAAAADAAAAAAAAAA==",
+              "ViewState": "AgIAAFYAAAAAAAAAAADgv2YAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-01-13T02:41:12.72Z"
+              "WhenOpened": "2026-04-07T17:10:13.712Z",
+              "EditorCaption": ""
             }
           ]
         }

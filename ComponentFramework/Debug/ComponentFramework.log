@@ -1,13 +1,5 @@
-﻿  Scene3p.cpp
+﻿  Scene4p.cpp
   Warning: Vec4 cross(const Vec4& a, const Vec4& b) read my comments
   This questionable: Vec4 inverse(const Vec4& v)
-C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Scene3p.cpp(107,28): warning C4305: '-=': truncation from 'double' to 'float'
-C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Scene3p.cpp(109,22): warning C4305: '-=': truncation from 'double' to 'float'
-C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Scene3p.cpp(113,28): warning C4305: '+=': truncation from 'double' to 'float'
-C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Scene3p.cpp(115,22): warning C4305: '-=': truncation from 'double' to 'float'
-C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Scene3p.cpp(119,28): warning C4305: '-=': truncation from 'double' to 'float'
-C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Scene3p.cpp(121,22): warning C4305: '-=': truncation from 'double' to 'float'
-C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Scene3p.cpp(125,28): warning C4305: '+=': truncation from 'double' to 'float'
-C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Scene3p.cpp(127,22): warning C4305: '+=': truncation from 'double' to 'float'
-C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Scene3p.cpp(146,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Scene4p.cpp(39,23): warning C4305: '=': truncation from 'double' to 'float'
   ComponentFramework.vcxproj -> C:\Users\ash\source\repos\ComponentFramework26.157.0\Debug\ComponentFramework.exe

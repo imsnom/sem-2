@@ -1,10 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
     <Filter Include="Header Files">
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
@@ -16,87 +12,117 @@
     <Filter Include="Header Files\Scenes">
       <UniqueIdentifier>{252de02d-6b89-41ec-b372-ddfef9870bbe}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Imgui">
+      <UniqueIdentifier>{d430d021-6c49-48c0-a463-6638f9a94088}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{9a4d6aec-0c3e-4dbe-8069-182659388c0c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Imgui">
+      <UniqueIdentifier>{5d1468d1-dca9-404e-9ade-4e3ecd41b9ca}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Source Files\Scenes">
-      <UniqueIdentifier>{e8c82a08-d757-47ee-b6fe-eee59a99570f}</UniqueIdentifier>
+      <UniqueIdentifier>{8370306a-70ce-4fc0-8d13-41512670a473}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Main.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Texture.h">
+      <Filter>Header Files</Filter>
     </ClCompile>
-    <ClCompile Include="Debug.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Skybox.h">
+      <Filter>Header Files</Filter>
     </ClCompile>
-    <ClCompile Include="Timer.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="imgui.cpp">
+      <Filter>Source Files\Imgui</Filter>
     </ClCompile>
-    <ClCompile Include="Window.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="imgui_demo.cpp">
+      <Filter>Source Files\Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui_draw.cpp">
+      <Filter>Source Files\Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui_impl_opengl3.cpp">
+      <Filter>Source Files\Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui_impl_sdl3.cpp">
+      <Filter>Source Files\Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui_tables.cpp">
+      <Filter>Source Files\Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui_widgets.cpp">
+      <Filter>Source Files\Imgui</Filter>
     </ClCompile>
     <ClCompile Include="Scene0g.cpp">
       <Filter>Source Files\Scenes</Filter>
     </ClCompile>
-    <ClCompile Include="SceneManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Mesh.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Shader.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Body.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Scene0p.cpp">
+      <Filter>Source Files\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene0pr.cpp">
+      <Filter>Source Files\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene1g.cpp">
       <Filter>Source Files\Scenes</Filter>
     </ClCompile>
     <ClCompile Include="Scene1p.cpp">
       <Filter>Source Files\Scenes</Filter>
     </ClCompile>
-    <ClCompile Include="Texture.h">
-      <Filter>Header Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Texture.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Scene2g.cpp">
+      <Filter>Source Files\Scenes</Filter>
     </ClCompile>
     <ClCompile Include="Scene2p.cpp">
       <Filter>Source Files\Scenes</Filter>
     </ClCompile>
-    <ClCompile Include="Collision.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Scene1g.cpp">
-      <Filter>Source Files\Scenes</Filter>
-    </ClCompile>
-    <ClCompile Include="Scene2g.cpp">
-      <Filter>Source Files\Scenes</Filter>
-    </ClCompile>
-    <ClCompile Include="Trackball.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Scene3g.cpp">
       <Filter>Source Files\Scenes</Filter>
-    </ClCompile>
-    <ClCompile Include="Skybox.h">
-      <Filter>Header Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Skybox.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Scene0pr.cpp">
-      <Filter>Source Files\Scenes</Filter>
-    </ClCompile>
-    <ClCompile Include="Camera.cpp">
-      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Scene3p.cpp">
       <Filter>Source Files\Scenes</Filter>
     </ClCompile>
-    <ClCompile Include="tessEval.glsl">
+    <ClCompile Include="Scene4g.cpp">
+      <Filter>Source Files\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Body.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Collision.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Debug.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Mesh.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Shader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Skybox.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Timer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Trackball.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Window.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
-    <ClCompile Include="Scene4g.cpp">
+    <ClCompile Include="Scene4p.cpp">
       <Filter>Source Files\Scenes</Filter>
     </ClCompile>
   </ItemGroup>
@@ -167,13 +193,44 @@
     <ClInclude Include="Scene4g.h">
       <Filter>Header Files\Scenes</Filter>
     </ClInclude>
+    <ClInclude Include="imconfig.h">
+      <Filter>Header Files\Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui.h">
+      <Filter>Header Files\Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui_impl_opengl3.h">
+      <Filter>Header Files\Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui_impl_opengl3_loader.h">
+      <Filter>Header Files\Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui_impl_sdl3.h">
+      <Filter>Header Files\Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui_internal.h">
+      <Filter>Header Files\Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imstb_rectpack.h">
+      <Filter>Header Files\Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imstb_textedit.h">
+      <Filter>Header Files\Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imstb_truetype.h">
+      <Filter>Header Files\Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene4p.h">
+      <Filter>Header Files\Scenes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="GameEngineLog.txt">
+    <None Include="imgui.ini">
+      <Filter>Header Files\Imgui</Filter>
+    </None>
+    <None Include="shaders\colorFrag.glsl">
       <Filter>Resource Files</Filter>
-    </Text>
-  </ItemGroup>
-  <ItemGroup>
+    </None>
     <None Include="shaders\defaultFrag.glsl">
       <Filter>Resource Files</Filter>
     </None>
@@ -186,19 +243,10 @@
     <None Include="shaders\phongVert.glsl">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="shaders\texturePhongFrag.glsl">
+    <None Include="shaders\reflectionFrag.glsl">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="shaders\texturePhongVert.glsl">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="shaders\texturePhongFragMultiLight.glsl">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="shaders\texturePhongVertMultiLight.glsl">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="shaders\colorFrag.glsl">
+    <None Include="shaders\reflectionVert.glsl">
       <Filter>Resource Files</Filter>
     </None>
     <None Include="shaders\skyboxFrag.glsl">
@@ -207,20 +255,34 @@
     <None Include="shaders\skyboxVert.glsl">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="shaders\reflectionFrag.glsl">
+    <None Include="shaders\tessCtrl.glsl">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="shaders\reflectionVert.glsl">
+    <None Include="shaders\tessEval.glsl">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="tessVert.glsl">
+    <None Include="shaders\tessFrag.glsl">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="tessFrag.glsl">
+    <None Include="shaders\tessVert.glsl">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="tessControl.glsl">
+    <None Include="shaders\texturePhongFrag.glsl">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="shaders\texturePhongFragMultiLight.glsl">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="shaders\texturePhongVert.glsl">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="shaders\texturePhongVertMultiLight.glsl">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="GameEngineLog.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>
