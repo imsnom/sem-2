@@ -1,6 +1,7 @@
 #include "Window.h"
 #include "Debug.h"
-Window::Window(): window{nullptr}, context{nullptr},  width{0}, height{0} {}
+
+Window::Window() : window{ nullptr }, context{ nullptr }, width{ 0 }, height{ 0 } {}
 
 Window::~Window() {
 	OnDestroy();
@@ -11,10 +12,15 @@ bool Window::OnCreate(std::string name_, int width_, int height_) {
 		Debug::FatalError("Failed to initialize SDL", __FILE__, __LINE__);
 		return false;
 	}
-	
+
+	// To use RenderDoc, we gotta set this manually to OpenGL 4.6 Core
+	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 4);
+	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 6);
+	SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
+
 	this->width = width_;
 	this->height = height_;
-	window = SDL_CreateWindow(name_.c_str(),width, height,SDL_WINDOW_OPENGL);
+	window = SDL_CreateWindow(name_.c_str(), width, height, SDL_WINDOW_OPENGL);
 
 	if (window == nullptr) {
 		Debug::FatalError("Failed to create a window", __FILE__, __LINE__);
@@ -22,8 +28,27 @@ bool Window::OnCreate(std::string name_, int width_, int height_) {
 	}
 	context = SDL_GL_CreateContext(window);
 	int major, minor;
-	getInstalledOpenGLInfo(&major,&minor);
-	setAttributes(major,minor);
+	getInstalledOpenGLInfo(&major, &minor);
+	setAttributes(major, minor);
+
+	//////////////////////////
+	// Setup Dear ImGui context
+	IMGUI_CHECKVERSION();
+	ImGui::CreateContext();
+	ImGuiIO& io = ImGui::GetIO(); (void)io;
+	io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;     // Enable Keyboard Controls
+	io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad Controls
+	// Setup Dear ImGui style
+	ImGui::StyleColorsDark();
+	// Setup scaling
+	ImGuiStyle& style = ImGui::GetStyle();
+	float main_scale = SDL_GetDisplayContentScale(SDL_GetPrimaryDisplay());
+	style.ScaleAllSizes(main_scale);        // Bake a fixed style scale. (until we have a solution for dynamic style scaling, changing this requires resetting Style + calling this again)
+	style.FontScaleDpi = main_scale;        // Set initial font scale. (in docking branch: using io.ConfigDpiScaleFonts=true automatically overrides this for every window depending on the current monitor)
+	ImGui_ImplSDL3_InitForOpenGL(window, context);
+	ImGui_ImplOpenGL3_Init("#version 450");
+	//////////////////////////
+
 
 	/// Fire up the GL Extension Wrangler (GLEW)
 	GLenum err = glewInit();
@@ -36,24 +61,26 @@ bool Window::OnCreate(std::string name_, int width_, int height_) {
 }
 
 void Window::OnDestroy() {
+	// Delete ImGui stuff
+	ImGui_ImplOpenGL3_Shutdown();
+	ImGui_ImplSDL3_Shutdown();
+	ImGui::DestroyContext();
+
 	SDL_GL_DestroyContext(context);
 	SDL_DestroyWindow(window);
 	window = nullptr;
 }
 
 
-
-
-
-void Window::getInstalledOpenGLInfo(int *major, int *minor) {
+void Window::getInstalledOpenGLInfo(int* major, int* minor) {
 	/// You can to get some info regarding versions and manufacturer
-	const GLubyte *version = glGetString(GL_VERSION);
+	const GLubyte* version = glGetString(GL_VERSION);
 	/// You can also get the version as ints	
-	const GLubyte *vendor = glGetString(GL_VENDOR);
-	const GLubyte *renderer = glGetString(GL_RENDERER);
-	const GLubyte *glslVersion = glGetString(GL_SHADING_LANGUAGE_VERSION);
+	const GLubyte* vendor = glGetString(GL_VENDOR);
+	const GLubyte* renderer = glGetString(GL_RENDERER);
+	const GLubyte* glslVersion = glGetString(GL_SHADING_LANGUAGE_VERSION);
 
-	
+
 	glGetIntegerv(GL_MAJOR_VERSION, major);
 	glGetIntegerv(GL_MINOR_VERSION, minor);
 	Debug::Info("OpenGL version: " + std::string((char*)glGetString(GL_VERSION)), __FILE__, __LINE__);
@@ -74,5 +101,4 @@ void Window::setAttributes(int major_, int minor_) {
 	glewExperimental = GL_TRUE;
 	return;
 }
-
 

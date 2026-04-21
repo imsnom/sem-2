@@ -7,9 +7,9 @@ Camera::Camera():useSkybox(true), skybox(nullptr) {
 	translation = Vec3(0.0f, 0.0f, -5.0f);
 
 	if (useSkybox == true) {
-		skybox = new Skybox("textures/posx.jpg", "textures/negx.jpg",
-			"textures/posy.jpg", "textures/negy.jpg",
-			"textures/posz.jpg", "textures/negz.jpg");
+		skybox = new Skybox("textures/Underwater Box_Posx.png", "textures/Underwater Box_Negx.png",
+			"textures/Underwater Box_Posy.png", "textures/Underwater Box_Negy.png",
+			"textures/Underwater Box_Posz.png", "textures/Underwater Box_Negz.png");
 		skybox->OnCreate();
 		skybox->LoadImages();
 	}

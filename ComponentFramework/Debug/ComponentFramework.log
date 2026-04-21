@@ -1,4 +1,69 @@
-﻿  Scene3p.cpp
+﻿  Body.cpp
+  Warning: Vec4 cross(const Vec4& a, const Vec4& b) read my comments
+  This questionable: Vec4 inverse(const Vec4& v)
+C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Body.cpp(14,11): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Body.cpp(13,8): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Body.cpp(12,10): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Body.cpp(20,15): warning C4150: deletion of pointer to incomplete type 'Texture'; no destructor called
+      C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Body.h(13,7):
+      see declaration of 'Texture'
+  
+C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Body.cpp(97,12): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Body.cpp(121,27): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Body.cpp(128,12): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Body.cpp(139,27): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Body.cpp(146,12): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  Camera.cpp
+  Warning: Vec4 cross(const Vec4& a, const Vec4& b) read my comments
+  This questionable: Vec4 inverse(const Vec4& v)
+  Collision.cpp
+  Warning: Vec4 cross(const Vec4& a, const Vec4& b) read my comments
+  This questionable: Vec4 inverse(const Vec4& v)
+  Debug.cpp
+  imgui.cpp
+  imgui_demo.cpp
+  imgui_draw.cpp
+  imgui_impl_opengl3.cpp
+  imgui_impl_sdl3.cpp
+  imgui_tables.cpp
+  imgui_widgets.cpp
+  Main.cpp
+  Mesh.cpp
+C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\tiny_obj_loader.h(1665,27): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'Mesh.cpp')
+  
+  Noise.cpp
+  Scene0g.cpp
+  Warning: Vec4 cross(const Vec4& a, const Vec4& b) read my comments
+  This questionable: Vec4 inverse(const Vec4& v)
+  Scene0p.cpp
+  Warning: Vec4 cross(const Vec4& a, const Vec4& b) read my comments
+  This questionable: Vec4 inverse(const Vec4& v)
+  Scene0pr.cpp
+  Warning: Vec4 cross(const Vec4& a, const Vec4& b) read my comments
+  This questionable: Vec4 inverse(const Vec4& v)
+C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Scene0pr.cpp(29,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Scene0pr.cpp(39,25): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Scene0pr.cpp(42,14): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Scene0pr.cpp(43,14): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Scene0pr.cpp(44,14): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+  Scene1g.cpp
+  Scene1p.cpp
+  Warning: Vec4 cross(const Vec4& a, const Vec4& b) read my comments
+  This questionable: Vec4 inverse(const Vec4& v)
+  Scene2g.cpp
+  Warning: Vec4 cross(const Vec4& a, const Vec4& b) read my comments
+  This questionable: Vec4 inverse(const Vec4& v)
+  Generating Code...
+  Compiling...
+  Scene2p.cpp
+  Warning: Vec4 cross(const Vec4& a, const Vec4& b) read my comments
+  This questionable: Vec4 inverse(const Vec4& v)
+C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Scene2p.cpp(37,25): warning C4305: 'argument': truncation from 'double' to 'float'
+  Scene3g.cpp
+  Warning: Vec4 cross(const Vec4& a, const Vec4& b) read my comments
+  This questionable: Vec4 inverse(const Vec4& v)
+  Scene3p.cpp
   Warning: Vec4 cross(const Vec4& a, const Vec4& b) read my comments
   This questionable: Vec4 inverse(const Vec4& v)
 C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Scene3p.cpp(107,28): warning C4305: '-=': truncation from 'double' to 'float'
@@ -10,4 +75,41 @@ C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Scene3p.
 C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Scene3p.cpp(125,28): warning C4305: '+=': truncation from 'double' to 'float'
 C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Scene3p.cpp(127,22): warning C4305: '+=': truncation from 'double' to 'float'
 C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Scene3p.cpp(146,21): warning C4018: '<': signed/unsigned mismatch
+  Scene4g.cpp
+  Warning: Vec4 cross(const Vec4& a, const Vec4& b) read my comments
+  This questionable: Vec4 inverse(const Vec4& v)
+  Scene4p.cpp
+  Warning: Vec4 cross(const Vec4& a, const Vec4& b) read my comments
+  This questionable: Vec4 inverse(const Vec4& v)
+C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Scene4p.cpp(40,23): warning C4305: '=': truncation from 'double' to 'float'
+  Scene5g.cpp
+  Warning: Vec4 cross(const Vec4& a, const Vec4& b) read my comments
+  This questionable: Vec4 inverse(const Vec4& v)
+  SceneManager.cpp
+  Warning: Vec4 cross(const Vec4& a, const Vec4& b) read my comments
+  This questionable: Vec4 inverse(const Vec4& v)
+  Shader.cpp
+  Skybox.cpp
+  Skybox.h
+  Texture.cpp
+  Texture.h
+  Timer.cpp
+C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Timer.cpp(10,26): warning C4244: '=': conversion from 'Uint64' to 'unsigned int', possible loss of data
+C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Timer.cpp(11,29): warning C4244: '=': conversion from 'Uint64' to 'unsigned int', possible loss of data
+C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Timer.cpp(16,29): warning C4244: '=': conversion from 'Uint64' to 'unsigned int', possible loss of data
+C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Timer.cpp(28,25): warning C4244: 'initializing': conversion from 'Uint64' to 'unsigned int', possible loss of data
+  Trackball.cpp
+  Warning: Vec4 cross(const Vec4& a, const Vec4& b) read my comments
+  This questionable: Vec4 inverse(const Vec4& v)
+C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Trackball.cpp(25,53): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
+C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Trackball.cpp(25,34): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
+C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Trackball.cpp(28,51): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
+C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Trackball.cpp(28,32): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
+C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Trackball.cpp(32,49): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
+C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Trackball.cpp(32,30): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
+  Window.cpp
+C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Window.cpp(11,14): warning C4804: '<': unsafe use of type 'bool' in operation
+  Generating Code...
+Debug\Skybox.obj : warning LNK4042: object specified more than once; extras ignored
+Debug\Texture.obj : warning LNK4042: object specified more than once; extras ignored
   ComponentFramework.vcxproj -> C:\Users\ash\source\repos\ComponentFramework26.157.0\Debug\ComponentFramework.exe

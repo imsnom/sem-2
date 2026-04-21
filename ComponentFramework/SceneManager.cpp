@@ -11,7 +11,14 @@
 #include "Scene3g.h"
 #include "Scene3p.h"
 #include "Scene0pr.h"
+#include "Scene4g.h"
+#include "Scene4p.h"
+#include "Scene5g.h"
 
+// Imgui stuff
+#include "imgui.h"
+#include "imgui_impl_sdl3.h"
+#include "imgui_impl_opengl3.h"
 
 SceneManager::SceneManager(): 
 	currentScene{nullptr}, window{nullptr}, timer{nullptr},
@@ -32,7 +39,7 @@ SceneManager::~SceneManager() {
 		delete timer;
 		timer = nullptr;
 	}
-
+	
 	if (window) {
 		delete window;
 		window = nullptr;
@@ -55,8 +62,9 @@ bool SceneManager::Initialize(std::string name_, int width_, int height_) {
 	}
 
 	/********************************   Default first scene   ***********************/
-	BuildNewScene(SCENE_NUMBER::SCENE3p);
+	BuildNewScene(SCENE_NUMBER::SCENE5g);
 	/********************************************************************************/
+	
 	return true;
 }
 
@@ -109,6 +117,8 @@ void SceneManager::HandleEvents() {
 			isRunning = false;
 			return;
 		}
+		//ImGui_ImplSDL3_ProcessEvent(&sdlEvent);
+
 		currentScene->HandleEvents(sdlEvent);
 	}
 }
@@ -160,6 +170,19 @@ bool SceneManager::BuildNewScene(SCENE_NUMBER scene) {
 		break;
 	case SCENE_NUMBER::SCENE0pr:
 		currentScene = new Scene0pr();
+		status = currentScene->OnCreate();
+		break;
+
+	case SCENE_NUMBER::SCENE4g:
+		currentScene = new Scene4g();
+		status = currentScene->OnCreate();
+		break;
+	case SCENE_NUMBER::SCENE4p:
+		currentScene = new Scene4p();
+		status = currentScene->OnCreate();
+		break;
+	case SCENE_NUMBER::SCENE5g:
+		currentScene = new Scene5g();
 		status = currentScene->OnCreate();
 		break;
 	default:
