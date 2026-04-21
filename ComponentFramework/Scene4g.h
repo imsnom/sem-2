@@ -30,6 +30,7 @@ private:
 	Matrix4 viewMatrix;
 	Matrix4 modelMatrix;
 	bool drawInWireMode;
+	float tessLevel;
 
 public:
 	explicit Scene4g();

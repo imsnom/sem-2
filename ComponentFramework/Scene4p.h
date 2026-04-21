@@ -19,12 +19,22 @@ class Scene4p : public Scene {
 private:
 	
 	std::vector<Body*> joints;
+
+	float lowerArmLengthLeft;
+	float upperArmLengthLeft;
+	float thighLength;
+	float calfLength;
+	float toeLength;
+	char limb;
+
+
 	Body* target;
 	Shader* shader;
 	// Colin is right, the body has a mesh in there
 	// so we don't need to make another mesh for the sphere
 	Matrix4 projectionMatrix;
 	Matrix4 viewMatrix;
+
 
 	// Don't tell Scott, but lets make a camera
 	Vec3 cameraPos;

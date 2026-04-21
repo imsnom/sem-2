@@ -11,6 +11,7 @@ C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\imgui_ta
 C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\imgui_widgets.cpp;C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Debug\imgui_widgets.obj
 C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Main.cpp;C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Debug\Main.obj
 C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Mesh.cpp;C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Debug\Mesh.obj
+C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Noise.cpp;C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Debug\Noise.obj
 C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Scene0g.cpp;C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Debug\Scene0g.obj
 C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Scene0p.cpp;C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Debug\Scene0p.obj
 C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Scene0pr.cpp;C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Debug\Scene0pr.obj
@@ -22,6 +23,7 @@ C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Scene3g.
 C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Scene3p.cpp;C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Debug\Scene3p.obj
 C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Scene4g.cpp;C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Debug\Scene4g.obj
 C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Scene4p.cpp;C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Debug\Scene4p.obj
+C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Scene5g.cpp;C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Debug\Scene5g.obj
 C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\SceneManager.cpp;C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Debug\SceneManager.obj
 C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Shader.cpp;C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Debug\Shader.obj
 C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Skybox.cpp;C:\Users\ash\source\repos\ComponentFramework26.157.0\ComponentFramework\Debug\Skybox.obj

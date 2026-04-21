@@ -44,7 +44,7 @@ bool Scene4g::OnCreate() {
 	viewMatrix = MMath::lookAt(Vec3(0.0f, 0.0f, 14.0f), Vec3(0.0f, 0.0f, 0.0f), Vec3(0.0f, 1.0f, 0.0f));
 	modelMatrix.loadIdentity();
 
-
+	tessLevel = 1;
 
 
 
@@ -80,13 +80,16 @@ void Scene4g::HandleEvents(const SDL_Event& sdlEvent) {
 }
 
 void Scene4g::Update(const float deltaTime) {
-	//// Start the Dear ImGui frame
-	//ImGui_ImplOpenGL3_NewFrame();
-	//ImGui_ImplSDL3_NewFrame();
-	//ImGui::NewFrame();
+	// Start the Dear ImGui frame
+	ImGui_ImplOpenGL3_NewFrame();
+	ImGui_ImplSDL3_NewFrame();
+	ImGui::NewFrame();
 
-	//// This is the overwhelming demo
+	// This is the overwhelming demo
 	//ImGui::ShowDemoWindow();
+	ImGui::Begin("Hello, world!");                          // Create a window called "Hello, world!" and append into it.
+	ImGui::SliderFloat("tessLevel", &tessLevel, 1.0f, 32.0f);            // Edit 1 float using a slider from 0.0f to 1.0f
+	ImGui::End();
 }
 
 void Scene4g::Render() const {
@@ -104,9 +107,12 @@ void Scene4g::Render() const {
 	glUniformMatrix4fv(shader->GetUniformID("projectionMatrix"), 1, GL_FALSE, projectionMatrix);
 	glUniformMatrix4fv(shader->GetUniformID("viewMatrix"), 1, GL_FALSE, viewMatrix);
 	glUniformMatrix4fv(shader->GetUniformID("modelMatrix"), 1, GL_FALSE, modelMatrix);
+	glUniform1f(shader->GetUniformID("tesslevel"), tessLevel);
+
+	
 	mesh->Render(GL_PATCHES); // Thanks to Ethan for reminding me this should be patches
 	glUseProgram(0);
 
-	//ImGui::Render();
-	//ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+	ImGui::Render();
+	ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 }

@@ -21,6 +21,7 @@ using namespace MATHEX;
 Scene4p::Scene4p() :
 	shader{ nullptr }
 	, target{ nullptr }
+	, limb{ '1' }
 {
 	Debug::Info("Created Scene4p: ", __FILE__, __LINE__);
 }
@@ -55,11 +56,18 @@ bool Scene4p::OnCreate() {
 	joints[4]->pos = Vec3(1.5, 2, 0); // elbow
 	joints[5]->pos = Vec3(1, 1, 0); // hand
 
+	lowerArmLengthLeft = VMath::distance(joints[5]->pos, joints[4]->pos);
+	upperArmLengthLeft = VMath::distance(joints[3]->pos, joints[4]->pos);
+
 	// Left leg
 	joints[6]->pos = Vec3(0.5f, 0.8f, 0); // hip
 	joints[7]->pos = Vec3(0.5f, -1.2f, 0); // knee
 	joints[8]->pos = Vec3(0.5f, -3.2f, 0); // ankle
 	joints[9]->pos = Vec3(0.8f, -3.2f, 0); // toe
+	
+	thighLength = VMath::distance(joints[6]->pos, joints[7]->pos);
+	calfLength = VMath::distance(joints[8]->pos, joints[7]->pos);
+	toeLength = VMath::distance(joints[8]->pos, joints[9]->pos);
 
 	// Right arm
 	joints[10]->pos = joints[3]->pos + Vec3(-2, 0, 0); // shoulder
@@ -118,15 +126,20 @@ void Scene4p::HandleEvents(const SDL_Event& sdlEvent) {
 	switch (sdlEvent.type) {
 	case SDL_EVENT_KEY_DOWN:
 		switch (sdlEvent.key.scancode) {
-		case SDL_SCANCODE_UP:
+		case SDL_SCANCODE_1:
+			limb = '1'; // left arm
 			break;
-		case SDL_SCANCODE_DOWN:
+		case SDL_SCANCODE_2:
+			limb = '2'; // right arm
 			break;
-		case SDL_SCANCODE_LEFT:
+		case SDL_SCANCODE_3:
+			limb = '3'; // left leg
 			break;
-		case SDL_SCANCODE_RIGHT:
+		case SDL_SCANCODE_4:
+			limb = '4'; // right leg
 			break;
-		case SDL_SCANCODE_SPACE:
+		case SDL_SCANCODE_5:
+			limb = '0';
 			break;
 		case SDL_SCANCODE_W:
 			break;
@@ -177,10 +190,143 @@ void Scene4p::HandleEvents(const SDL_Event& sdlEvent) {
 }
 
 void Scene4p::Update(const float deltaTime) {
+	// left arm
+	// starting with the backward part of FABRIK
+	// grab the hand, stick it on the target 
+
+	//joints[3]->pos = Vec3(1, 3, 0); // shoulder
+	//joints[4]->pos = Vec3(1.5, 2, 0); // elbow
+	//joints[5]->pos = Vec3(1, 1, 0); // hand
+	int armJoint1, armJoint2, armJoint3;
+	//int legJoint1, legJoint2, legJoint3, legJoint4;
+	int hipIndex, kneeIndex, ankleIndex, toeIndex;
+
+	if (limb == '1') {
+		armJoint1 = 3;
+		armJoint2 = 4;
+		armJoint3 = 5;
+	}
+	else if (limb == '2') {
+		armJoint1 = 10;
+		armJoint2 = 11;
+		armJoint3 = 12;
+	}
+	else if (limb == '3') {
+		hipIndex = 6;
+		kneeIndex = 7;
+		ankleIndex = 8;
+		toeIndex = 9;
+	}
+	else if (limb == '4') {
+		hipIndex = 13;
+		kneeIndex = 14;
+		ankleIndex = 15;
+		toeIndex = 16;
+	}
+	if (limb == '1' || limb == '2') {
+		joints[armJoint3]->pos = target->pos;
+
+		DualQuat lineHandToElbow = join(Vec4(joints[armJoint3]->pos, 1), Vec4(joints[armJoint2]->pos, 1));
+
+		DualQuat translatorHandToElbow = DQMath::translateAlongLine(lowerArmLengthLeft, lineHandToElbow);
+
+
+		// translate from the hand to the elbow
+		//Vec4 shoulderPos4d = DQMath::rigidTransformation(translatorElbowToShoulder, Vec4(joints[4]->pos, 1));
+		Vec4 elbowPos4d = DQMath::rigidTransformation(translatorHandToElbow, Vec4(joints[armJoint3]->pos, 1));
+		joints[armJoint2]->pos = VMath::perspectiveDivide(elbowPos4d);
+
+
+		// to make the shoulder stay where it is:
+		// make a line going from shoulder to elbow
+		DualQuat lineShoulderToElbow = join(Vec4(joints[armJoint1]->pos, 1), Vec4(joints[armJoint2]->pos, 1));
+		// make a translator to ensure i have the right bone length
+		DualQuat translatorShoulderToElbow = DQMath::translateAlongLine(upperArmLengthLeft, lineShoulderToElbow);
+		// stick the elbow on the shoulder and translating by length
+		elbowPos4d = DQMath::rigidTransformation(translatorShoulderToElbow, Vec4(joints[armJoint1]->pos, 1));
+		joints[armJoint2]->pos = VMath::perspectiveDivide(elbowPos4d);
+
+		// lastly, the hand
+		// make a line from elbow to hand
+		DualQuat lineElbowToHand = join(Vec4(joints[armJoint2]->pos, 1), (Vec4(joints[armJoint3]->pos, 1)));
+
+		DualQuat translatorElbowToHand = DQMath::translateAlongLine(lowerArmLengthLeft, lineElbowToHand);
+		Vec4 handPos4d = DQMath::rigidTransformation(translatorElbowToHand, Vec4(joints[armJoint2]->pos, 1));
+		joints[armJoint3]->pos = VMath::perspectiveDivide(handPos4d);
+	}
+
+	else if (limb == '3' || limb == '4') {
+		//joints[6]->pos = Vec3(0.5f, 0.8f, 0); // hip (joint 1)
+		//joints[7]->pos = Vec3(0.5f, -1.2f, 0); // knee (joint 2)
+		//joints[8]->pos = Vec3(0.5f, -3.2f, 0); // ankle (joint 3)
+		//joints[9]->pos = Vec3(0.8f, -3.2f, 0); // toe (joint 4)
+
+
+		// BACKWARDS PART
+		joints[toeIndex]->pos = target->pos;
+
+		DualQuat lineToeToAnkle = join(Vec4(joints[toeIndex]->pos, 1), (Vec4(joints[ankleIndex]->pos, 1)));
+
+		DualQuat translatorToeToAnkle = DQMath::translateAlongLine(toeLength, lineToeToAnkle);
+		Vec4 pos4d = DQMath::rigidTransformation(translatorToeToAnkle, Vec4(joints[toeIndex]->pos, 1));
+		joints[ankleIndex]->pos = VMath::perspectiveDivide(pos4d);
+
+		
+
+		DualQuat lineAnkleToKnee = join(Vec4(joints[ankleIndex]->pos, 1), Vec4(joints[kneeIndex]->pos, 1));
+
+		DualQuat translatorAnkleToKnee = DQMath::translateAlongLine(calfLength, lineAnkleToKnee);
+		pos4d = DQMath::rigidTransformation(translatorAnkleToKnee, Vec4(joints[ankleIndex]->pos, 1));
+		joints[kneeIndex]->pos = VMath::perspectiveDivide(pos4d);
+
+
+
+		// FOREWARDS PART
+		DualQuat lineHipToKnee = join(Vec4(joints[hipIndex]->pos, 1), Vec4(joints[kneeIndex]->pos, 1));
+		// make a translator to ensure i have the right bone length
+		DualQuat translatorHipToKnee = DQMath::translateAlongLine(thighLength, lineHipToKnee);
+		// stick the elbow on the shoulder and translating by length
+		pos4d = DQMath::rigidTransformation(translatorHipToKnee, Vec4(joints[hipIndex]->pos, 1));
+		joints[kneeIndex]->pos = VMath::perspectiveDivide(pos4d);
+
+		
+
+
+		DualQuat lineKneeToAnkle = join(Vec4(joints[kneeIndex]->pos, 1), (Vec4(joints[ankleIndex]->pos, 1)));
+
+		DualQuat translatorKneeToAnkle = DQMath::translateAlongLine(calfLength, lineKneeToAnkle);
+		pos4d = DQMath::rigidTransformation(translatorKneeToAnkle, Vec4(joints[kneeIndex]->pos, 1));
+		joints[ankleIndex]->pos = VMath::perspectiveDivide(pos4d);
+
+
+
+		DualQuat lineAnkleToToe = join(Vec4(joints[ankleIndex]->pos, 1), (Vec4(joints[toeIndex]->pos, 1)));
+
+		DualQuat translatorAnkleToToe = DQMath::translateAlongLine(toeLength, lineAnkleToToe);
+		pos4d = DQMath::rigidTransformation(translatorAnkleToToe, Vec4(joints[ankleIndex]->pos, 1));
+		joints[toeIndex]->pos = VMath::perspectiveDivide(pos4d);
+		
+	}
+
+	
+
+
+	// todo 
+	// finish up with the right arm, and the legs
+	// wouldnt it be nice to have like a handleEvents for the keys 1, 2, 3, 4
+	// and then the model tracks the target with its left hand, right hand, left foot, right foot
+
+
+	
+
+	// now stick the elbow on the hand and move 
+	// along the line between them to make the forearm bone the right length
+
 	// Let's set up an orbit camera using the trackball
 	// Rotate the position
 	// Based on Umer's scribbles, we just need to divide the quaternions
 	Quaternion qInitial = cameraOrientation;
+
 	Quaternion qFinal = trackball.getQuat();
 	// Fancy word to inverse a quaternion is "conjugate"
 	Quaternion changeInRotation = qFinal * QMath::conjugate(qInitial); // qFinal / qInitial;
@@ -197,6 +343,7 @@ void Scene4p::Update(const float deltaTime) {
 
 	Matrix4 T = MMath::translate(cameraPos);         // T for Translation Matrix
 	Matrix4 R = MMath::toMatrix4(cameraOrientation); // R for Rotation Matrix
+	
 
 	viewMatrix = MMath::inverse(R) * MMath::inverse(T);
 }

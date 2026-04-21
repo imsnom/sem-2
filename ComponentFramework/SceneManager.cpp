@@ -13,6 +13,8 @@
 #include "Scene0pr.h"
 #include "Scene4g.h"
 #include "Scene4p.h"
+#include "Scene5g.h"
+
 // Imgui stuff
 #include "imgui.h"
 #include "imgui_impl_sdl3.h"
@@ -37,11 +39,7 @@ SceneManager::~SceneManager() {
 		delete timer;
 		timer = nullptr;
 	}
-	// Delete ImGui stuff
-	ImGui_ImplOpenGL3_Shutdown();
-	ImGui_ImplSDL3_Shutdown();
-	ImGui::DestroyContext();
-
+	
 	if (window) {
 		delete window;
 		window = nullptr;
@@ -64,32 +62,9 @@ bool SceneManager::Initialize(std::string name_, int width_, int height_) {
 	}
 
 	/********************************   Default first scene   ***********************/
-	BuildNewScene(SCENE_NUMBER::SCENE4p);
+	BuildNewScene(SCENE_NUMBER::SCENE5g);
 	/********************************************************************************/
 	
-	//// Setup Dear ImGui context
-	//IMGUI_CHECKVERSION();
-	//ImGui::CreateContext();
-	//ImGuiIO& io = ImGui::GetIO(); (void)io;
-	//io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;     // Enable Keyboard Controls
-	//io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad Controls
-
-	//// Setup Dear ImGui style
-	//ImGui::StyleColorsDark();
-	////ImGui::StyleColorsLight();
-
-	//// Setup scaling
-	//ImGuiStyle& style = ImGui::GetStyle();
-	//float main_scale = SDL_GetDisplayContentScale(SDL_GetPrimaryDisplay());
-	//style.ScaleAllSizes(main_scale);        // Bake a fixed style scale. (until we have a solution for dynamic style scaling, changing this requires resetting Style + calling this again)
-	//style.FontScaleDpi = main_scale;        // Set initial font scale. (in docking branch: using io.ConfigDpiScaleFonts=true automatically overrides this for every window depending on the current monitor)
-
-	//// Setup Platform/Renderer backends
-	//SDL_GLContext gl_context = SDL_GL_CreateContext(window->getWindow());
-
-	//ImGui_ImplSDL3_InitForOpenGL(window->getWindow(), gl_context);
-	//ImGui_ImplOpenGL3_Init("#version 450");
-
 	return true;
 }
 
@@ -102,13 +77,6 @@ void SceneManager::Run() {
 		timer->UpdateFrameTicks();
 		currentScene->Update(timer->GetDeltaTime());
 		currentScene->Render();
-
-		/*ImGui::Render();
-		glViewport(0, 0, 400, 400);
-		glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-		glClear(GL_COLOR_BUFFER_BIT);
-		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());*/
-
 		
 		SDL_GL_SwapWindow(window->getWindow());
 		SDL_Delay(timer->GetSleepTime(fps));
@@ -211,6 +179,10 @@ bool SceneManager::BuildNewScene(SCENE_NUMBER scene) {
 		break;
 	case SCENE_NUMBER::SCENE4p:
 		currentScene = new Scene4p();
+		status = currentScene->OnCreate();
+		break;
+	case SCENE_NUMBER::SCENE5g:
+		currentScene = new Scene5g();
 		status = currentScene->OnCreate();
 		break;
 	default:

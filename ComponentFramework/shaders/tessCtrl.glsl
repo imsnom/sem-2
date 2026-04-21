@@ -3,21 +3,38 @@
 
 layout(vertices = 3) out;
 
+uniform float tesslevel;
 ///uniform float tessLevelInner;
 ///uniform float tessLevelOuter;
 
 in vec2 uvCoordFromVert[];
 in vec3 normalFromVert[];
+in vec3 vertPosFromVert[];
+in vec3 eyeDirFromVert[];
+in vec3 lightDirFromVert[];
+
 
 out vec2 uvCoordFromCtrl[];
 out vec3 normalFromCtrl[];
+out vec3 vertPosFromCtrl[];
+out vec3 eyeDirFromCtrl[];
+out vec3 lightDirFromCtrl[];
+
+
+
+
 void main() {
     /// Pass through input vertices to tessellation evaluation stage
     gl_out[gl_InvocationID].gl_Position =  gl_in[gl_InvocationID].gl_Position;
     uvCoordFromCtrl[gl_InvocationID] = uvCoordFromVert[gl_InvocationID];
     normalFromCtrl[gl_InvocationID] = normalFromVert[gl_InvocationID];
 
-   float tesslevel = 1.0;
+    vertPosFromCtrl[gl_InvocationID] = vertPosFromVert[gl_InvocationID];
+    eyeDirFromCtrl[gl_InvocationID] = eyeDirFromVert[gl_InvocationID];
+    lightDirFromCtrl[gl_InvocationID] = lightDirFromVert[gl_InvocationID];
+
+
+   //float tesslevel = 1.0;
     /// Set tessellation levels
     if (gl_InvocationID == 0) {
         gl_TessLevelInner[0] = tesslevel;

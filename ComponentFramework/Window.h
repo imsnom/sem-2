@@ -7,6 +7,10 @@
 #include <string>
 #include <iostream>
 #include "Debug.h"
+// Imgui stuff. Sorry it didn;t work in class
+#include "imgui.h"
+#include "imgui_impl_sdl3.h"
+#include "imgui_impl_opengl3.h"
 
 class Window {
 private:
@@ -24,13 +28,13 @@ public:
 	~Window();
 	bool OnCreate(std::string name_, int width_, int height_);
 	void OnDestroy();
-	
+
 	int getWidth() const { return width; }
 	int getHeight() const { return height; }
 	SDL_Window* getWindow() const { return window; }
 
 private: /// internal tools OpenGl versions. 
 	void setAttributes(int major_, int minor_);
-	void getInstalledOpenGLInfo(int *major, int *minor);
+	void getInstalledOpenGLInfo(int* major, int* minor);
 };
 #endif /// !WINDOW_H
