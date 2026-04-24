@@ -5,6 +5,8 @@
 #include <Matrix.h>
 #include "Trackball.h"
 #include "Camera.h"
+#include "Skybox.h"
+#include <vector>
 using namespace MATH;
 
 /// Forward declarations 
@@ -21,6 +23,11 @@ private:
 	Vec3 lightPos;
 	Shader* shader;
 	Camera camera;
+	Body* sphere;
+	Mesh* sphereMesh;
+	Texture* sphereTexture;
+	Skybox* skybox;
+
 
 public:
 	explicit Scene3g();

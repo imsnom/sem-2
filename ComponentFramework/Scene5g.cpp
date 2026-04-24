@@ -8,11 +8,9 @@
 #include "Mesh.h"
 #include "Shader.h"
 #include "Body.h"
+#include "Noise.h"
 
-// Imgui stuff
-#include "imgui.h"
-#include "imgui_impl_sdl3.h"
-#include "imgui_impl_opengl3.h"
+
 
 
 Scene5g::Scene5g() :plane{ nullptr }, shader{ nullptr }, mesh{ nullptr },
@@ -32,14 +30,8 @@ bool Scene5g::OnCreate() {
 	mesh = new Mesh("meshes/Plane.obj");
 	mesh->OnCreate();
 
-	shader = new Shader("shaders/tessVert.glsl"
-		, "shaders/tessFrag.glsl"
-		, "shaders/tessCtrl.glsl"
-		, "shaders/tessEval.glsl"
-	);
-	if (shader->OnCreate() == false) {
-		std::cout << "Shader failed ... we have a problem\n";
-	}
+	
+
 	
 	terrainHeight = new Texture();
 	if (terrainHeight->LoadMultipleImages("textures/terrainHeight.png", 0) == false) {
@@ -57,6 +49,16 @@ bool Scene5g::OnCreate() {
 		return false;
 	}
 	
+	shader = new Shader(
+		"shaders/tessVert.glsl"
+		, "shaders/tessFrag.glsl"
+		, "shaders/tessCtrl.glsl"
+		, "shaders/tessEval.glsl"
+	);
+
+	if (shader->OnCreate() == false) {
+		std::cout << "Shader failed ... we have a problem\n";
+	}
 
 	projectionMatrix = MMath::perspective(45.0f, (16.0f / 9.0f), 0.5f, 100.0f);
 	viewMatrix = MMath::lookAt(Vec3(0.0f, 0.0f, 14.0f), Vec3(0.0f, 0.0f, 0.0f), Vec3(0.0f, 1.0f, 0.0f));
@@ -95,8 +97,10 @@ void Scene5g::HandleEvents(const SDL_Event& sdlEvent) {
 			drawInWireMode = !drawInWireMode;
 			break;
 		case SDL_SCANCODE_UP:
-			tessLevel++;
-			break;
+			if (tessLevel < 63) {
+				tessLevel++;
+				break;
+			}
 		case SDL_SCANCODE_DOWN:
 			if (tessLevel > 1) {
 				tessLevel--;
@@ -111,21 +115,14 @@ void Scene5g::HandleEvents(const SDL_Event& sdlEvent) {
 }
 
 void Scene5g::Update(const float deltaTime) {
-	// Start the Dear ImGui frame
-	//ImGui_ImplOpenGL3_NewFrame();
-	//ImGui_ImplSDL3_NewFrame();
-	//ImGui::NewFrame();
-
-	//// This is the overwhelming demo
-	////ImGui::ShowDemoWindow();
-	//ImGui::Begin("Hello, world!");                          // Create a window called "Hello, world!" and append into it.
-	//ImGui::SliderFloat("tessLevel", &tessLevel, 1.0f, 32.0f);            // Edit 1 float using a slider from 0.0f to 1.0f
-	//ImGui::End();
+	modelMatrix = MMath::rotate(90.0f, Vec3(-1.0f, 0.0f, 0.0f));
 }
 
 void Scene5g::Render() const {
 	/// Set the background color then clear the screen
-	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+
+	glClearColor(0.0f, 0.2f, 0.4f, 0.0f);
+
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	if (drawInWireMode) {
@@ -138,11 +135,12 @@ void Scene5g::Render() const {
 	camera.Render();
 
 	glUseProgram(shader->GetProgram());
-	glUniformMatrix4fv(shader->GetUniformID("projectionMatrix"), 1, GL_FALSE, projectionMatrix);
-	glUniformMatrix4fv(shader->GetUniformID("viewMatrix"), 1, GL_FALSE, viewMatrix);
+	glUniformMatrix4fv(shader->GetUniformID("projectionMatrix"), 1, GL_FALSE, camera.getProjection());
+	glUniformMatrix4fv(shader->GetUniformID("viewMatrix"), 1, GL_FALSE, camera.getView());
 	glUniformMatrix4fv(shader->GetUniformID("modelMatrix"), 1, GL_FALSE, modelMatrix);
 	glUniform1f(shader->GetUniformID("tesslevel"), tessLevel);
 	glUniform1f(shader->GetUniformID("density"), densityLevel);
+	glUniformMatrix3fv(shader->GetUniformID("cameraPos"), 1, GL_FALSE, camera.getView());
 
 
 
@@ -154,17 +152,14 @@ void Scene5g::Render() const {
 
 	glActiveTexture(GL_TEXTURE2);
 	glBindTexture(GL_TEXTURE_2D, terrainDiffuse->getTextureID());
-
-
 	
+	mesh->Render(GL_PATCHES);
+
+	setNoiseFrequency(1);
 	glBindTexture(GL_TEXTURE_2D, 0);
 	glBindTexture(GL_TEXTURE_2D, 1);
 	glBindTexture(GL_TEXTURE_2D, 2);
+	
 
-
-	//mesh->Render(GL_PATCHES); // Thanks to Ethan for reminding me this should be patches
 	glUseProgram(0);
-
-	/*ImGui::Render();
-	ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());*/
 }

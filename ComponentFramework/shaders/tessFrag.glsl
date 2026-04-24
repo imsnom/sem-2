@@ -12,7 +12,7 @@ uniform float density;
 out vec4 fragColor;
 
 layout (binding = 0) uniform sampler2D heightTextureMap;
-layout (binding = 0) uniform sampler2D diffuseTextureMap;
+layout (binding = 2) uniform sampler2D diffuseTextureMap;
 
 uniform vec3 cameraPos;
 uniform sampler2D textureData;
@@ -20,11 +20,11 @@ uniform sampler2D textureData;
 
 void main() {
 
-    vec4 ks = vec4(0.9,0.9,0.9,0.0);
-    vec4 kd = vec4(0.8,0.8,0.8,0.0);
+    vec4 ks = vec4(0.9, 0.9, 0.9, 0.0);
+    vec4 kd = vec4(0.8, 0.8, 0.8, 0.0);
     vec4 ka = 0.1 * kd;
     vec4 kt = texture(diffuseTextureMap, uvCoordFromEval);
-    float diff = max(dot(normalFromEval, lightDirFromEval, 0.0));
+    float diff = dot(normalFromEval, lightDirFromEval);
 
     vec3 reflection = normalize(reflect(-lightDirFromEval, normalFromEval));
 

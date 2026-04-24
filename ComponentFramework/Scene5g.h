@@ -6,6 +6,7 @@
 #include "Trackball.h"
 #include "Camera.h"
 #include "Texture.h"
+#include "cmath"
 using namespace MATH;
 
 /// Forward declarations 

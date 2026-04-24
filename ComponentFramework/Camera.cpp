@@ -4,12 +4,22 @@
 Camera::Camera():useSkybox(true), skybox(nullptr) {
 	projection = MMath::perspective(45.0f, 16.0f / 9.0f, 0.5f, 100.0f);
 	orientation = QMath::angleAxisRotation(0.0f, Vec3(0.0f, 1.0f, 0.0f));
-	translation = Vec3(0.0f, 0.0f, -5.0f);
+	translation = Vec3(0.0f, -1.0f, -5.0f);
 
-	if (useSkybox == true) {
+	// for underwater scene
+	/*if (useSkybox == true) {
 		skybox = new Skybox("textures/Underwater Box_Posx.png", "textures/Underwater Box_Negx.png",
 			"textures/Underwater Box_Posy.png", "textures/Underwater Box_Negy.png",
 			"textures/Underwater Box_Posz.png", "textures/Underwater Box_Negz.png");
+		skybox->OnCreate();
+		skybox->LoadImages();
+	}*/
+
+	// for city scene
+	if (useSkybox == true) {
+		skybox = new Skybox("textures/posx.jpg", "textures/negx.jpg",
+			"textures/posy.jpg", "textures/negy.jpg",
+			"textures/posz.jpg", "textures/negz.jpg");
 		skybox->OnCreate();
 		skybox->LoadImages();
 	}
